@@ -1,0 +1,278 @@
+/* PALETA DE COLORES */
+/* FONT FAMILY */
+html {
+  scroll-behavior: smooth !important;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0%;
+}
+
+body {
+  padding: 0%;
+  margin: 0%;
+  width: 100%;
+  height: 200vh;
+  background-color: rgb(253, 253, 253);
+  font-family: "Trispace", sans-serif;
+}
+body header {
+  position: relative;
+  /* MENU */
+}
+body header .menu {
+  position: fixed;
+  top: 0.5rem;
+  right: 2.5rem;
+  /* MENU HOVER */
+  /* MENU ITEMS */
+  /* MENU ITEMS ENUMERATED */
+}
+body header .menu .menu-hover, body header .menu .menu-item {
+  background-color: #33dd8b;
+  -webkit-transition: all 200ms;
+  transition: all 200ms;
+}
+body header .menu .menu-hover {
+  z-index: 999 !important;
+  cursor: pointer;
+  margin-top: 1.3rem;
+  padding: 1rem;
+  width: 10rem;
+  height: 10rem;
+  border-radius: 50%;
+  border: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+body header .menu .menu-hover:hover {
+  background-color: #44e095;
+}
+body header .menu .menu-hover:hover p {
+  font-size: 1.15rem;
+}
+body header .menu .menu-hover:active {
+  background-color: #23d37e;
+}
+body header .menu .menu-hover p {
+  position: relative;
+  text-align: center;
+  line-height: 1.5rem;
+  font-size: 1.3rem;
+  font-weight: bold;
+  margin: 0%;
+  padding: 0%;
+  color: white;
+  -webkit-transition: all 200ms;
+  transition: all 200ms;
+}
+body header .menu .menu-hover .arrow-container {
+  display: none;
+  opacity: 0;
+  position: relative;
+  top: 20px;
+}
+body header .menu .menu-hover .arrow-container img {
+  height: 5rem;
+}
+body header .menu .menu-hover .wave {
+  z-index: 1;
+  position: absolute;
+  height: 9rem;
+  width: 9rem;
+  border-radius: 50%;
+  background-color: transparent;
+  border: 2px #33dd8b solid;
+}
+body header .menu .menu-item {
+  z-index: 998 !important;
+  position: absolute;
+  color: white;
+  text-align: center;
+  border-radius: 10px;
+}
+body header .menu .menu-item:hover {
+  background-color: #23d37e;
+  font-size: 0.9rem;
+}
+body header .menu #menu-item-1 {
+  display: none;
+  top: 0rem;
+  left: -5.7rem;
+  -webkit-transform: skewX(-45deg);
+          transform: skewX(-45deg);
+}
+body header .menu #menu-item-1 a {
+  display: inline-block;
+  color: white;
+  text-decoration: none;
+  padding: 1rem 0.5rem;
+  width: 94px;
+}
+body header .menu #menu-item-1 a span {
+  display: inline-block;
+  -webkit-transform: skewX(45deg);
+          transform: skewX(45deg);
+}
+body header .menu #menu-item-2 {
+  display: none;
+  top: 3.5rem;
+  left: -7.45rem;
+  -webkit-transform: skewX(-10deg);
+          transform: skewX(-10deg);
+}
+body header .menu #menu-item-2 a {
+  display: inline-block;
+  color: white;
+  text-decoration: none;
+  padding: 1rem 0.5rem;
+  width: 94px;
+  -webkit-transform: skewX(10deg);
+          transform: skewX(10deg);
+}
+body header .menu #menu-item-3 {
+  display: none;
+  top: 7rem;
+  left: -7rem;
+  -webkit-transform: skewX(20deg);
+          transform: skewX(20deg);
+}
+body header .menu #menu-item-3 a {
+  display: inline-block;
+  color: white;
+  text-decoration: none;
+  padding: 1rem 0.5rem;
+  width: 94px;
+}
+body header .menu #menu-item-3 a span {
+  display: inline-block;
+  -webkit-transform: skewX(-20deg);
+          transform: skewX(-20deg);
+}
+body header .menu #menu-item-4 {
+  display: none;
+  top: 10.5rem;
+  left: -4.6rem;
+  -webkit-transform: skewX(45deg);
+          transform: skewX(45deg);
+}
+body header .menu #menu-item-4 a {
+  display: inline-block;
+  color: white;
+  text-decoration: none;
+  padding: 1rem 0.5rem;
+  width: 94px;
+}
+body header .menu #menu-item-4 a span {
+  display: inline-block;
+  -webkit-transform: skewX(-45deg);
+          transform: skewX(-45deg);
+}
+body header .menu .shake {
+  -webkit-animation: shake 0.75s infinite;
+          animation: shake 0.75s infinite;
+}
+@-webkit-keyframes shake {
+  0% {
+    -webkit-transform: translate(0.5px, 0.5px) rotate(0deg);
+            transform: translate(0.5px, 0.5px) rotate(0deg);
+  }
+  10% {
+    -webkit-transform: translate(-0.5px, -0.5px) rotate(-0.5deg);
+            transform: translate(-0.5px, -0.5px) rotate(-0.5deg);
+  }
+  20% {
+    -webkit-transform: translate(-1.5px, -1.5px) rotate(0.5deg);
+            transform: translate(-1.5px, -1.5px) rotate(0.5deg);
+  }
+  30% {
+    -webkit-transform: translate(1.5px, 1px) rotate(0deg);
+            transform: translate(1.5px, 1px) rotate(0deg);
+  }
+  40% {
+    -webkit-transform: translate(0.5px, -0.5px) rotate(0.5deg);
+            transform: translate(0.5px, -0.5px) rotate(0.5deg);
+  }
+  50% {
+    -webkit-transform: translate(-0.5px, 1px) rotate(-0.5deg);
+            transform: translate(-0.5px, 1px) rotate(-0.5deg);
+  }
+  60% {
+    -webkit-transform: translate(-1.5px, 0.5px) rotate(0deg);
+            transform: translate(-1.5px, 0.5px) rotate(0deg);
+  }
+  70% {
+    -webkit-transform: translate(1.5px, 0.5px) rotate(-0.5deg);
+            transform: translate(1.5px, 0.5px) rotate(-0.5deg);
+  }
+  80% {
+    -webkit-transform: translate(-0.5px, -0.5px) rotate(0.5deg);
+            transform: translate(-0.5px, -0.5px) rotate(0.5deg);
+  }
+  90% {
+    -webkit-transform: translate(0.5px, 1px) rotate(0deg);
+            transform: translate(0.5px, 1px) rotate(0deg);
+  }
+  100% {
+    -webkit-transform: translate(0.5px, -1px) rotate(-0.5deg);
+            transform: translate(0.5px, -1px) rotate(-0.5deg);
+  }
+}
+@keyframes shake {
+  0% {
+    -webkit-transform: translate(0.5px, 0.5px) rotate(0deg);
+            transform: translate(0.5px, 0.5px) rotate(0deg);
+  }
+  10% {
+    -webkit-transform: translate(-0.5px, -0.5px) rotate(-0.5deg);
+            transform: translate(-0.5px, -0.5px) rotate(-0.5deg);
+  }
+  20% {
+    -webkit-transform: translate(-1.5px, -1.5px) rotate(0.5deg);
+            transform: translate(-1.5px, -1.5px) rotate(0.5deg);
+  }
+  30% {
+    -webkit-transform: translate(1.5px, 1px) rotate(0deg);
+            transform: translate(1.5px, 1px) rotate(0deg);
+  }
+  40% {
+    -webkit-transform: translate(0.5px, -0.5px) rotate(0.5deg);
+            transform: translate(0.5px, -0.5px) rotate(0.5deg);
+  }
+  50% {
+    -webkit-transform: translate(-0.5px, 1px) rotate(-0.5deg);
+            transform: translate(-0.5px, 1px) rotate(-0.5deg);
+  }
+  60% {
+    -webkit-transform: translate(-1.5px, 0.5px) rotate(0deg);
+            transform: translate(-1.5px, 0.5px) rotate(0deg);
+  }
+  70% {
+    -webkit-transform: translate(1.5px, 0.5px) rotate(-0.5deg);
+            transform: translate(1.5px, 0.5px) rotate(-0.5deg);
+  }
+  80% {
+    -webkit-transform: translate(-0.5px, -0.5px) rotate(0.5deg);
+            transform: translate(-0.5px, -0.5px) rotate(0.5deg);
+  }
+  90% {
+    -webkit-transform: translate(0.5px, 1px) rotate(0deg);
+            transform: translate(0.5px, 1px) rotate(0deg);
+  }
+  100% {
+    -webkit-transform: translate(0.5px, -1px) rotate(-0.5deg);
+            transform: translate(0.5px, -1px) rotate(-0.5deg);
+  }
+}
