@@ -28,8 +28,9 @@ body{
             /* MENU HOVER */
             .menu-hover{
                 z-index: 999 !important;
+                position: relative;
                 cursor: pointer;
-                margin-top: 1.3rem;
+                margin-top: 1.5rem;
                 padding: 1rem;
                 width: 10rem;
                 height: 10rem;
@@ -79,6 +80,11 @@ body{
                 }
             }
             /* MENU ITEMS */
+            //CONTAINER
+            .menu-item-container{
+                position: relative;
+                top: -12.2rem;
+            }
             .menu-item{
                 z-index: 998 !important;
                 position: absolute;
@@ -119,7 +125,10 @@ body{
                     text-decoration: none;
                     padding: 1rem .5rem;
                     width: 94px;
-                    transform: skewX(10deg);
+                    span{
+                        display: inline-block;
+                        transform: skewX(10deg);
+                    }
                 }
             }
             #menu-item-3{

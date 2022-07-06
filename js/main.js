@@ -4,6 +4,7 @@ $(document).ready(()=>{
     let show = true;
     let active = true;
     let timer;
+    let innerHeight=window.innerHeight-220;
     let intervalWave, intervalEffects , intervalEffects2, intervalArrow;
     let item1= document.getElementById("menu-item-1");
     let item2= document.getElementById("menu-item-2");
@@ -25,7 +26,7 @@ $(document).ready(()=>{
                         $(".menu-hover p").empty();
                         $(".arrow-container").show();
                         $(".menu-hover p").html("¡DOBLE CLICK ME!");        
-                        $(".menu-hover p ").animate({
+                        $(".menu-hover p").animate({
                             top:'0px',
                             opacity:'1',
                         },250);
@@ -35,7 +36,20 @@ $(document).ready(()=>{
                         },490);
                     },200)
                 });
+                //SENDING THE MENU TO BOTTOM
+                innerHeight = window.innerHeight-220;
+                $(".menu-hover").animate({
+                    top : `${innerHeight}px`
+                },600)
+                $(".menu-item-container").animate({
+                    top : `${innerHeight-200}px`
+                },800)
+                //ORGANIZING MENU ITEMS
+                menuItemsDown();
                 showArrow=false;
+                //HIDING MENU ITEMS
+                fadeOutMenu();
+                show=true;
             }
         }
         else{
@@ -45,11 +59,23 @@ $(document).ready(()=>{
                     top:'20px',
                     opacity:'0'
                 },300).hide(300)
+                //SENDING THE MENU TO BOTTOM
+                $(".menu-hover").animate({
+                    top : `0px`
+                },600)
+                $(".menu-item-container").animate({
+                    top : `-195.2px`
+                },800)
+                //ORGANIZING MENU ITEMS
+                menuItemsUp();
                 showArrow=true;
+                //HIDING MENU ITEMS
+                fadeOutMenu();
+                show=true;
             }
         }
     });
-    //IF THE PAGE IS RELOADED ON A PIXEL HIGHER THAN 301, THEN THE ARROW APEARS
+    //IF THE PAGE IS RELOADED ON A PIXEL HIGHER THAN 301, THEN THE ARROW APEARS AND THE MENU GO DOWN
     if(window.scrollY>=300){
         $(".menu-hover p").animate({
             top:'20px',
@@ -69,6 +95,15 @@ $(document).ready(()=>{
                 },490);
             },200)
         });
+        //SENDING THE MENU TO BOTTOM
+        $(".menu-hover").animate({
+            top : `${innerHeight}px`
+        },600)
+        $(".menu-item-container").animate({
+            top : `${innerHeight-200}px`
+        },900)
+        //ORGANIZING ITEMS
+        menuItemsDown();
         showArrow=false;
     }
     //MENU-HOVER EVENTS
@@ -121,7 +156,9 @@ $(document).ready(()=>{
         'dblclick': ()=>{
             if(window.scrollY>300){
                 window.scrollTo(0,0);
-                fadeOutMenu();
+                setTimeout(() => {
+                    fadeOutMenu();
+                },600);
                 show=true;
             }
         },
@@ -154,7 +191,7 @@ $(document).ready(()=>{
         }
     });
 
-    //FUNCTIONS
+    /*FUNCTIONS*/
 
     //FADE IN MENU ITEMS
     function fadeInMenu(){
@@ -232,6 +269,108 @@ $(document).ready(()=>{
                 }
             },num);
         },8000);
+    }
+    //SENDING MENU ITEMS DOWN
+    function menuItemsDown(){
+        //ITEM 1
+        $("#menu-item-1").animate({
+            top:'-20px',
+            left:'-50px'
+        },550,()=>{
+            $("#menu-item-1").css({
+                "transform":"skewX(-55deg)"
+            })
+            $("#menu-item-1 span").css({
+                "transform":"skewX(55deg)"
+            })
+        })
+        //ITEM 2
+        $("#menu-item-2").animate({
+            top:'35px',
+            left:'-110px'
+        },550,()=>{
+            $("#menu-item-2").css({
+                "transform":"skewX(-30deg)"
+            })
+            $("#menu-item-2 span").css({
+                "transform":"skewX(30deg)"
+            })
+        })
+        //ITEM 3
+        $("#menu-item-3").animate({
+            top:'90px',
+            left:'-120px'
+        },550,()=>{
+            $("#menu-item-3").css({
+                "transform":"skewX(10deg)"
+            })
+            $("#menu-item-3 span").css({
+                "transform":"skewX(-10deg)"
+            })
+        })
+        //ITEM 4
+        $("#menu-item-4").animate({
+            top:'145px',
+            left:'-90px'
+        },550,()=>{
+            $("#menu-item-4").css({
+                "transform":"skewX(45deg)"
+            })
+            $("#menu-item-4 span").css({
+                "transform":"skewX(-45deg)"
+            })
+        })
+    }
+    //SENDING MENU ITEMS UP
+    function menuItemsUp(){
+        //ITEM 1
+        $("#menu-item-1").animate({
+            top:'0px',
+            left:'-91.2px'
+        },550,()=>{
+            $("#menu-item-1").css({
+                "transform":"skewX(-45deg)"
+            })
+            $("#menu-item-1 span").css({
+                "transform":"skewX(45deg)"
+            })
+        })
+        //ITEM 2
+        $("#menu-item-2").animate({
+            top:'56px',
+            left:'-119.2px'
+        },550,()=>{
+            $("#menu-item-2").css({
+                "transform":"skewX(-10deg)"
+            })
+            $("#menu-item-2 span").css({
+                "transform":"skewX(10deg)"
+            })
+        })
+        //ITEM 3
+        $("#menu-item-3").animate({
+            top:'112px',
+            left:'-112px'
+        },550,()=>{
+            $("#menu-item-3").css({
+                "transform":"skewX(20deg)"
+            })
+            $("#menu-item-3 span").css({
+                "transform":"skewX(-20deg)"
+            })
+        })
+        //ITEM 4
+        $("#menu-item-4").animate({
+            top:'168px',
+            left:'-73.6px'
+        },550,()=>{
+            $("#menu-item-4").css({
+                "transform":"skewX(45deg)"
+            })
+            $("#menu-item-4 span").css({
+                "transform":"skewX(-45deg)"
+            })
+        })
     }
     // $(document).scroll(()=>{
     //     if(window.scrollY>=300)

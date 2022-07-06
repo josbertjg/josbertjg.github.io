@@ -36,8 +36,9 @@ body header .menu .menu-hover, body header .menu .menu-item {
 }
 body header .menu .menu-hover {
   z-index: 999 !important;
+  position: relative;
   cursor: pointer;
-  margin-top: 1.3rem;
+  margin-top: 1.5rem;
   padding: 1rem;
   width: 10rem;
   height: 10rem;
@@ -96,6 +97,10 @@ body header .menu .menu-hover .wave {
   background-color: transparent;
   border: 2px #33dd8b solid;
 }
+body header .menu .menu-item-container {
+  position: relative;
+  top: -12.2rem;
+}
 body header .menu .menu-item {
   z-index: 998 !important;
   position: absolute;
@@ -139,6 +144,9 @@ body header .menu #menu-item-2 a {
   text-decoration: none;
   padding: 1rem 0.5rem;
   width: 94px;
+}
+body header .menu #menu-item-2 a span {
+  display: inline-block;
   -webkit-transform: skewX(10deg);
           transform: skewX(10deg);
 }
