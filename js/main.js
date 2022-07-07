@@ -4,12 +4,39 @@ $(document).ready(()=>{
     let show = true;
     let active = true;
     let timer;
-    let innerHeight=window.innerHeight-220;
-    let intervalWave, intervalEffects , intervalEffects2, intervalArrow;
+    let innerHeight=window.innerHeight;
+    let intervalWave, intervalEffects , intervalEffects2;
     let item1= document.getElementById("menu-item-1");
     let item2= document.getElementById("menu-item-2");
     let item3= document.getElementById("menu-item-3");
     let item4= document.getElementById("menu-item-4");
+    /* INITIAL EFFECTS */
+    setTimeout(()=>{
+        $(".menu-hover").animate({
+            right:"0px"
+        },300)
+        $(".semicircle").animate({
+            top:"90vh",
+            opacity:"1"
+        },600,()=>{
+            $(".ribbon").slideDown();
+            $(".image-header-container img").animate({
+                left:"0px",
+                opacity:"1"
+            },600,()=>{
+                setTimeout(()=>{
+                    $(".text-header-container p:not(.text-header-container div > p b)").fadeIn();
+                    $(".line").fadeIn();
+                }, 1000);
+                setTimeout(()=>{
+                    $(".text-header-container div > p b").fadeIn(400);
+                    $(".text-header-container img").fadeIn(400,()=>{
+                        $(".header-social-media li:first-of-type").fadeIn(300,()=>$(".header-social-media li:nth-of-type(2)").fadeIn(300,()=>$(".header-social-media li:nth-of-type(3)").fadeIn(300,()=>$(".header-social-media li:nth-of-type(4)").fadeIn(300,()=>$(".header-social-media li:nth-of-type(5)").fadeIn(300,()=>$(".header-social-media li:nth-of-type(6)").fadeIn(300))))));
+                    });
+                }, 2000);
+            })
+        })
+    },1000)
     //CALLING TEMPORAL EFFECTS
     clearInterval(intervalWave);
     tempEffects();
@@ -37,12 +64,12 @@ $(document).ready(()=>{
                     },200)
                 });
                 //SENDING THE MENU TO BOTTOM
-                innerHeight = window.innerHeight-220;
+                innerHeight=window.innerHeight;
                 $(".menu-hover").animate({
-                    top : `${innerHeight}px`
+                    top : `${innerHeight-220}px`
                 },600)
                 $(".menu-item-container").animate({
-                    top : `${innerHeight-200}px`
+                    top : `${innerHeight-420}px`
                 },800)
                 //ORGANIZING MENU ITEMS
                 menuItemsDown();
@@ -97,10 +124,10 @@ $(document).ready(()=>{
         });
         //SENDING THE MENU TO BOTTOM
         $(".menu-hover").animate({
-            top : `${innerHeight}px`
+            top : `${innerHeight-220}px`
         },600)
         $(".menu-item-container").animate({
-            top : `${innerHeight-200}px`
+            top : `${innerHeight-420}px`
         },900)
         //ORGANIZING ITEMS
         menuItemsDown();
@@ -167,7 +194,7 @@ $(document).ready(()=>{
             clearInterval(intervalEffects);
             clearInterval(intervalEffects2);
             //WAVE EFFECT
-            wave();
+            waves();
             $(".menu-hover").addClass("shake");
         },
         'mouseleave': ()=>{
@@ -180,7 +207,7 @@ $(document).ready(()=>{
                 $(".menu-hover").removeClass("shake");
                 $(".menu-hover").addClass("shake");
                 //WAVE EFFECT
-                wave();    
+                waves();    
             });
             $(".menu-hover").removeClass("shake");
             //CALLING TEMPORAL EFFECTS
@@ -220,16 +247,8 @@ $(document).ready(()=>{
             },200)
         })
     }
-    //WAVE EFFECT
-    function wave(){
-        clearInterval(intervalWave);
-        $(".wave").animate({
-            height:'12rem',
-            width:'12rem',
-            opacity: '0'
-        },500,()=>{
-            $(".wave").css({'height':'9rem','width':'9rem','opacity':'1'});
-        })
+    //WAVES EFFECT
+    function waves(){
         intervalWave=setInterval(()=>{
             $(".wave").animate({
                 height:'12rem',
@@ -239,6 +258,16 @@ $(document).ready(()=>{
                 $(".wave").css({'height':'9rem','width':'9rem','opacity':'1'})
             })
         },500);
+    }
+    //ONE WAVE EFFECT
+    function oneWave(){
+        $(".wave").animate({
+            height:'12rem',
+            width:'12rem',
+            opacity: '0'
+        },500,()=>{
+            $(".wave").css({'height':'9rem','width':'9rem','opacity':'1'});
+        })
     }
     //TEMPORAL EFECTS
     function tempEffects(){
@@ -255,7 +284,7 @@ $(document).ready(()=>{
                     $(".menu-hover").removeClass("shake");
                 },600)
                 //WAVES
-                wave();
+                oneWave();
                 clearInterval(intervalWave);
                 //ARROW MOVING
                 if(window.scrollY>300){
@@ -274,7 +303,7 @@ $(document).ready(()=>{
     function menuItemsDown(){
         //ITEM 1
         $("#menu-item-1").animate({
-            top:'-20px',
+            top:'0px',
             left:'-50px'
         },550,()=>{
             $("#menu-item-1").css({
@@ -286,7 +315,7 @@ $(document).ready(()=>{
         })
         //ITEM 2
         $("#menu-item-2").animate({
-            top:'35px',
+            top:'55px',
             left:'-110px'
         },550,()=>{
             $("#menu-item-2").css({
@@ -298,7 +327,7 @@ $(document).ready(()=>{
         })
         //ITEM 3
         $("#menu-item-3").animate({
-            top:'90px',
+            top:'110px',
             left:'-120px'
         },550,()=>{
             $("#menu-item-3").css({
@@ -310,7 +339,7 @@ $(document).ready(()=>{
         })
         //ITEM 4
         $("#menu-item-4").animate({
-            top:'145px',
+            top:'165px',
             left:'-90px'
         },550,()=>{
             $("#menu-item-4").css({
@@ -325,7 +354,7 @@ $(document).ready(()=>{
     function menuItemsUp(){
         //ITEM 1
         $("#menu-item-1").animate({
-            top:'0px',
+            top:'17px',
             left:'-91.2px'
         },550,()=>{
             $("#menu-item-1").css({
@@ -337,7 +366,7 @@ $(document).ready(()=>{
         })
         //ITEM 2
         $("#menu-item-2").animate({
-            top:'56px',
+            top:'73px',
             left:'-119.2px'
         },550,()=>{
             $("#menu-item-2").css({
@@ -349,7 +378,7 @@ $(document).ready(()=>{
         })
         //ITEM 3
         $("#menu-item-3").animate({
-            top:'112px',
+            top:'129px',
             left:'-112px'
         },550,()=>{
             $("#menu-item-3").css({
@@ -361,7 +390,7 @@ $(document).ready(()=>{
         })
         //ITEM 4
         $("#menu-item-4").animate({
-            top:'168px',
+            top:'185px',
             left:'-73.6px'
         },550,()=>{
             $("#menu-item-4").css({
