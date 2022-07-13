@@ -3,5 +3,7 @@ $principal: #33dd8b;
 $principal-deg: linear-gradient(to bottom, $principal,darken($principal,4));
 $dark: #333333;
 $background: rgb(253, 253, 253);
+$shadow-color:rgba(0, 0, 0, 0.246);
+$shadow: 0 8px 16px 0 $shadow-color;
 /* FONT FAMILY */
 $font:'Trispace', sans-serif;

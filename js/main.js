@@ -15,7 +15,7 @@ $(document).ready(()=>{
         $(".menu-hover").animate({
             right:"0px"
         },300)
-        $(".semicircle").animate({
+        $(".semicircleHeader").animate({
             top:"90vh",
             opacity:"1"
         },600,()=>{
@@ -32,6 +32,9 @@ $(document).ready(()=>{
                     $(".text-header-container div > p b").fadeIn(400);
                     $(".text-header-container img").fadeIn(400,()=>{
                         $(".header-social-media li:first-of-type").fadeIn(300,()=>$(".header-social-media li:nth-of-type(2)").fadeIn(300,()=>$(".header-social-media li:nth-of-type(3)").fadeIn(300,()=>$(".header-social-media li:nth-of-type(4)").fadeIn(300,()=>$(".header-social-media li:nth-of-type(5)").fadeIn(300,()=>$(".header-social-media li:nth-of-type(6)").fadeIn(300))))));
+                        // $(".semicircleSkill").animate({
+                        //     opacity:"1"
+                        // },300)
                     });
                 }, 2000);
             })
@@ -133,7 +136,7 @@ $(document).ready(()=>{
         menuItemsDown();
         showArrow=false;
     }
-    //MENU-HOVER EVENTS
+    /* ********************** MENU-HOVER EVENTS ********************** */
     $(".menu-hover").on({
         'click': ()=>{
             if(active){
@@ -218,7 +221,26 @@ $(document).ready(()=>{
         }
     });
 
-    /*FUNCTIONS*/
+    /* ********************** SKILL SET EVENTS ********************** */
+
+    //TRANSLATING THE SKILL SET IMAGE TO RIGHT
+    $(".skillSet-container ul").click(()=>{
+        let w = $(".skillSet-container ul").width();
+        let innerW;
+            if(window.innerWidth>=1400)
+                innerW=w*0.75
+            else if(window.innerWidth<1400 && window.innerWidth>=1024)
+                innerW=w*0.67
+        $(".skillSet-container ul").css({"background-color":"rgb(253, 253, 253)"})
+        $(".skill-card").animate({
+            left:`${innerW}px`
+        },1000)
+        $(".skillSet-text").fadeOut(500)
+        $(".skill-card .front").css({"transform":"perspective(1000px) rotateY(180deg)"})
+        $(".skill-card .back").css({"transform":"perspective(1000px) rotateY(360deg)"})
+    })
+
+    /* ********************** FUNCTIONS ********************** */
 
     //FADE IN MENU ITEMS
     function fadeInMenu(){
@@ -269,7 +291,7 @@ $(document).ready(()=>{
             $(".wave").css({'height':'9rem','width':'9rem','opacity':'1'});
         })
     }
-    //TEMPORAL EFECTS
+    //TEMPORAL MENU EFFECTS 
     function tempEffects(){
         clearInterval(intervalWave);
         clearInterval(intervalEffects);

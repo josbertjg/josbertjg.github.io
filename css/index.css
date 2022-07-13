@@ -13,7 +13,6 @@ body {
   padding: 0%;
   margin: 0%;
   width: 100%;
-  height: 200vh;
   background-color: rgb(253, 253, 253);
   font-family: "Trispace", sans-serif;
 }
@@ -98,7 +97,7 @@ body header .menu .menu-hover .wave {
   width: 9rem;
   border-radius: 50%;
   background-color: transparent;
-  border: 2px #33dd8b solid;
+  border: 4px #33dd8b solid;
 }
 body header .menu .menu-item-container {
   position: relative;
@@ -483,17 +482,101 @@ body header .first-view-container .header-social-media li a:hover .tool, body he
 body header .first-view-container .header-social-media li:last-of-type a {
   padding: 1.4rem;
 }
-body header .semicircle {
+body header .semicircleHeader {
   opacity: 0;
   display: inline-block;
   position: absolute;
   top: 100vh;
   background-color: #33dd8b;
-  height: 12.9vh;
+  height: 10vh;
   width: 100%;
   border-radius: 500px 500px 0 0;
-  border-bottom: 3vh #333333 solid;
 }
-body header .semicircle::before {
-  content: "";
+body main #skillSet {
+  height: 100vh;
+}
+body main #skillSet .semicircleSkill {
+  opacity: 1;
+  display: inline-block;
+  background-color: #33dd8b;
+  height: 10vh;
+  width: 100%;
+  border-radius: 0 0 500px 500px;
+}
+body main #skillSet .semicircleSkill span {
+  color: white;
+  font-weight: bold;
+  font-size: 3rem;
+}
+body main #skillSet .skillSet-container {
+  height: 90vh;
+  width: 100%;
+  padding: 3rem;
+}
+body main #skillSet .skillSet-container ul {
+  cursor: pointer;
+  height: 100%;
+  margin: 0;
+  padding: 0%;
+  background-color: #f8f8f8;
+  border-radius: 10px;
+  padding: 1rem;
+  -webkit-transition: all 200ms;
+  transition: all 200ms;
+  -webkit-box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.246);
+          box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.246);
+}
+body main #skillSet .skillSet-container ul:hover {
+  background-color: #fdfdfd;
+}
+body main #skillSet .skillSet-container ul:hover .skillSet-text {
+  font-size: 5.5rem;
+}
+body main #skillSet .skillSet-container ul > div {
+  position: relative;
+}
+body main #skillSet .skillSet-container ul > div .skill-card {
+  z-index: 2;
+  position: absolute;
+}
+body main #skillSet .skillSet-container ul > div .skill-card div {
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  -webkit-transition: all 1.2s;
+  transition: all 1.2s;
+}
+body main #skillSet .skillSet-container ul > div .skill-card img {
+  height: 72vh;
+}
+body main #skillSet .skillSet-container ul > div .skill-card .front {
+  -webkit-transform: perspective(1000px) rotateY(0deg);
+          transform: perspective(1000px) rotateY(0deg);
+}
+body main #skillSet .skillSet-container ul > div .skill-card .back {
+  -webkit-transform: perspective(1000px) rotateY(180deg);
+          transform: perspective(1000px) rotateY(180deg);
+}
+body main #skillSet .skillSet-container ul > div .skillSet-text {
+  z-index: 1;
+  position: absolute;
+  top: 10rem;
+  left: 30%;
+  color: #333333;
+  font-weight: bold;
+  font-size: 5rem;
+  margin-left: 0rem;
+  width: 65%;
+  text-align: center;
+  -webkit-transition: all 200ms;
+  transition: all 200ms;
 }
