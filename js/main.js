@@ -228,16 +228,17 @@ $(document).ready(()=>{
         let w = $(".skillSet-container ul").width();
         let innerW;
             if(window.innerWidth>=1400)
-                innerW=w*0.75
+                innerW=w*0.7
             else if(window.innerWidth<1400 && window.innerWidth>=1024)
                 innerW=w*0.67
         $(".skillSet-container ul").css({"background-color":"rgb(253, 253, 253)"})
         $(".skill-card").animate({
             left:`${innerW}px`
         },1000)
-        $(".skillSet-text").fadeOut(500)
+        $(".skillSet-text, .skillSet-text + img").fadeOut(500)
         $(".skill-card .front").css({"transform":"perspective(1000px) rotateY(180deg)"})
         $(".skill-card .back").css({"transform":"perspective(1000px) rotateY(360deg)"})
+        skillImgs();
     })
 
     /* ********************** FUNCTIONS ********************** */
@@ -422,6 +423,47 @@ $(document).ready(()=>{
                 "transform":"skewX(-45deg)"
             })
         })
+    }
+    //SKILLS EFFECTS
+    function skillImgs(){
+        let skillImg;
+        let arrSkills = $(".skill");
+        let i=0;
+        let interval = setInterval(() => {
+            skillImg=arrSkills[i].childNodes[1].childNodes[1];
+            $(skillImg).fadeIn(200)
+            i++;
+            if(i>=arrSkills.length){
+                skillContainers();
+                clearInterval(interval);
+            }
+        }, 200);
+
+        // for(let i=0;i<arrSkills.length;i++){
+        //     setTimeout(()=>{
+        //         skillImg=arrSkills[i].childNodes[1].childNodes[1];
+        //         $(skillImg).fadeIn()
+        //     },500)
+        // }
+    }
+    function skillContainers(){
+        let skillBarContainer;
+        let arrSkills = $(".skill");
+        for(let i=0;i<arrSkills.length;i++){
+            skillBarContainer=arrSkills[i].childNodes[3];
+            $(skillBarContainer).animate({
+                opacity:"1"
+            },1000,()=>skillLevels())
+        }
+    }
+    function skillLevels(){
+        let skillBar,level;
+        let arrSkills = $(".skill");
+        for(let i=0;i<arrSkills.length;i++){
+            skillBar=arrSkills[i].childNodes[3].childNodes[1];
+            level=$(skillBar).attr("level");
+            $(skillBar).css({"width":`${level}0%`})
+        }
     }
     // $(document).scroll(()=>{
     //     if(window.scrollY>=300)

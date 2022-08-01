@@ -16,12 +16,13 @@ body {
   background-color: rgb(253, 253, 253);
   font-family: "Trispace", sans-serif;
 }
-body header {
+
+header {
   position: relative;
   /* MENU */
   /* FIRST VIEW */
 }
-body header .menu {
+header .menu {
   z-index: 999;
   position: fixed;
   top: 0.5rem;
@@ -30,12 +31,12 @@ body header .menu {
   /* MENU ITEMS */
   /* MENU ITEMS ENUMERATED */
 }
-body header .menu .menu-hover, body header .menu .menu-item {
+header .menu .menu-hover, header .menu .menu-item {
   background-color: #33dd8b;
   -webkit-transition: all 200ms;
   transition: all 200ms;
 }
-body header .menu .menu-hover {
+header .menu .menu-hover {
   z-index: 999 !important;
   position: relative;
   right: -20rem;
@@ -60,16 +61,16 @@ body header .menu .menu-hover {
       -ms-flex-pack: center;
           justify-content: center;
 }
-body header .menu .menu-hover:hover {
+header .menu .menu-hover:hover {
   background-color: #44e095;
 }
-body header .menu .menu-hover:hover p {
+header .menu .menu-hover:hover p {
   font-size: 1.15rem;
 }
-body header .menu .menu-hover:active {
+header .menu .menu-hover:active {
   background-color: #23d37e;
 }
-body header .menu .menu-hover p {
+header .menu .menu-hover p {
   position: relative;
   text-align: center;
   line-height: 1.5rem;
@@ -81,16 +82,16 @@ body header .menu .menu-hover p {
   -webkit-transition: all 200ms;
   transition: all 200ms;
 }
-body header .menu .menu-hover .arrow-container {
+header .menu .menu-hover .arrow-container {
   display: none;
   opacity: 0;
   position: relative;
   top: 20px;
 }
-body header .menu .menu-hover .arrow-container img {
+header .menu .menu-hover .arrow-container img {
   height: 5rem;
 }
-body header .menu .menu-hover .wave {
+header .menu .menu-hover .wave {
   z-index: 1;
   position: absolute;
   height: 9rem;
@@ -99,12 +100,12 @@ body header .menu .menu-hover .wave {
   background-color: transparent;
   border: 4px #33dd8b solid;
 }
-body header .menu .menu-item-container {
+header .menu .menu-item-container {
   position: relative;
   top: -11.5rem;
   right: -1rem;
 }
-body header .menu .menu-item {
+header .menu .menu-item {
   z-index: 998 !important;
   position: absolute;
   color: white;
@@ -113,87 +114,87 @@ body header .menu .menu-item {
   font-size: 1.1rem;
   font-weight: 600 !important;
 }
-body header .menu .menu-item:hover {
+header .menu .menu-item:hover {
   background-color: #23d37e;
   font-size: 1rem;
 }
-body header .menu #menu-item-1 {
+header .menu #menu-item-1 {
   display: none;
   top: 5px;
   left: -5.7rem;
   -webkit-transform: skewX(-45deg);
           transform: skewX(-45deg);
 }
-body header .menu #menu-item-1 a {
+header .menu #menu-item-1 a {
   display: inline-block;
   color: white;
   text-decoration: none;
   padding: 0.75rem 0.5rem;
   width: 94px;
 }
-body header .menu #menu-item-1 a span {
+header .menu #menu-item-1 a span {
   display: inline-block;
   -webkit-transform: skewX(45deg);
           transform: skewX(45deg);
 }
-body header .menu #menu-item-2 {
+header .menu #menu-item-2 {
   display: none;
   top: 61px;
   left: -7.45rem;
   -webkit-transform: skewX(-10deg);
           transform: skewX(-10deg);
 }
-body header .menu #menu-item-2 a {
+header .menu #menu-item-2 a {
   display: inline-block;
   color: white;
   text-decoration: none;
   padding: 0.75rem 0.5rem;
   width: 94px;
 }
-body header .menu #menu-item-2 a span {
+header .menu #menu-item-2 a span {
   display: inline-block;
   -webkit-transform: skewX(10deg);
           transform: skewX(10deg);
 }
-body header .menu #menu-item-3 {
+header .menu #menu-item-3 {
   display: none;
   top: 117px;
   left: -7rem;
   -webkit-transform: skewX(20deg);
           transform: skewX(20deg);
 }
-body header .menu #menu-item-3 a {
+header .menu #menu-item-3 a {
   display: inline-block;
   color: white;
   text-decoration: none;
   padding: 0.75rem 0.5rem;
   width: 94px;
 }
-body header .menu #menu-item-3 a span {
+header .menu #menu-item-3 a span {
   display: inline-block;
   -webkit-transform: skewX(-20deg);
           transform: skewX(-20deg);
 }
-body header .menu #menu-item-4 {
+header .menu #menu-item-4 {
   display: none;
   top: 173px;
   left: -4.6rem;
   -webkit-transform: skewX(45deg);
           transform: skewX(45deg);
 }
-body header .menu #menu-item-4 a {
+header .menu #menu-item-4 a {
   display: inline-block;
   color: white;
   text-decoration: none;
   padding: 0.75rem 0.5rem;
   width: 94px;
 }
-body header .menu #menu-item-4 a span {
+header .menu #menu-item-4 a span {
   display: inline-block;
   -webkit-transform: skewX(-45deg);
           transform: skewX(-45deg);
 }
-body header .menu .shake {
+header .menu .shake {
   -webkit-animation: shake 0.75s infinite;
           animation: shake 0.75s infinite;
 }
@@ -289,22 +290,22 @@ body header .menu .shake {
             transform: translate(0.5px, -1px) rotate(-0.5deg);
   }
 }
-body header .first-view-container {
+header .first-view-container {
   height: 100vh;
 }
-body header .first-view-container .image-header-container {
+header .first-view-container .image-header-container {
   padding-top: 1rem;
 }
-body header .first-view-container .image-header-container img {
+header .first-view-container .image-header-container img {
   height: 90vh;
   position: relative;
   left: -5rem;
   opacity: 0;
 }
-body header .first-view-container .text-header-container {
+header .first-view-container .text-header-container {
   position: relative;
 }
-body header .first-view-container .text-header-container .line {
+header .first-view-container .text-header-container .line {
   display: none;
   position: relative;
   top: -10rem;
@@ -313,7 +314,7 @@ body header .first-view-container .text-header-container .line {
   height: 4px;
   background-color: #33dd8b;
 }
-body header .first-view-container .text-header-container .ribbon {
+header .first-view-container .text-header-container .ribbon {
   display: none;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
@@ -333,14 +334,14 @@ body header .first-view-container .text-header-container .ribbon {
   -webkit-animation: main 250ms;
   animation: main 250ms;
 }
-body header .first-view-container .text-header-container .ribbon span {
+header .first-view-container .text-header-container .ribbon span {
   font-size: 2.5rem;
   font-weight: bold;
 }
-body header .first-view-container .text-header-container .ribbon i {
+header .first-view-container .text-header-container .ribbon i {
   position: absolute;
 }
-body header .first-view-container .text-header-container .ribbon i:first-child, body header .first-view-container .text-header-container .ribbon .ribbon i:nth-child(2) {
+header .first-view-container .text-header-container .ribbon i:first-child, header .first-view-container .text-header-container .ribbon .ribbon i:nth-child(2) {
   position: absolute;
   left: -20px;
   bottom: -20px;
@@ -350,13 +351,13 @@ body header .first-view-container .text-header-container .ribbon i:first-child, 
   -webkit-animation: edge 500ms;
   animation: edge 500ms;
 }
-body header .first-view-container .text-header-container .ribbon i:nth-child(2) {
+header .first-view-container .text-header-container .ribbon i:nth-child(2) {
   left: auto;
   right: -20px;
   border-right-color: transparent;
   border-left-color: #043140;
 }
-body header .first-view-container .text-header-container .ribbon i:nth-child(3), body header .first-view-container .text-header-container .ribbon .ribbon i:last-child {
+header .first-view-container .text-header-container .ribbon i:nth-child(3), header .first-view-container .text-header-container .ribbon .ribbon i:last-child {
   width: 20px;
   bottom: -20px;
   left: -60px;
@@ -368,7 +369,7 @@ body header .first-view-container .text-header-container .ribbon i:nth-child(3),
   -webkit-transform-origin: 100% 0;
   transform-origin: 100% 0;
 }
-body header .first-view-container .text-header-container .ribbon i:last-child {
+header .first-view-container .text-header-container .ribbon i:last-child {
   bottom: -20px;
   left: auto;
   right: -60px;
@@ -377,16 +378,16 @@ body header .first-view-container .text-header-container .ribbon i:last-child {
   -webkit-transform-origin: 0 0;
   transform-origin: 0 0;
 }
-body header .first-view-container .text-header-container p {
+header .first-view-container .text-header-container p {
   display: none;
   color: #333333;
   font-size: 4rem;
   font-weight: bold;
 }
-body header .first-view-container .text-header-container p:nth-of-type(2) {
+header .first-view-container .text-header-container p:nth-of-type(2) {
   margin-left: 10rem !important;
 }
-body header .first-view-container .text-header-container div {
+header .first-view-container .text-header-container div {
   position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -396,19 +397,19 @@ body header .first-view-container .text-header-container div {
           align-items: baseline;
   margin-left: 11rem !important;
 }
-body header .first-view-container .text-header-container div b {
+header .first-view-container .text-header-container div b {
   display: none;
   font-size: 1rem;
   color: #333333;
 }
-body header .first-view-container .text-header-container div img {
+header .first-view-container .text-header-container div img {
   display: none;
   position: absolute;
   right: 4rem;
   bottom: -0.3rem;
   height: 4rem;
 }
-body header .first-view-container .header-social-media {
+header .first-view-container .header-social-media {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -422,11 +423,11 @@ body header .first-view-container .header-social-media {
   top: 75vh;
   left: -1.5rem;
 }
-body header .first-view-container .header-social-media li {
+header .first-view-container .header-social-media li {
   display: none;
   position: relative;
 }
-body header .first-view-container .header-social-media li .tool {
+header .first-view-container .header-social-media li .tool {
   position: absolute;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -451,7 +452,7 @@ body header .first-view-container .header-social-media li .tool {
   -webkit-transition: all 200ms;
   transition: all 200ms;
 }
-body header .first-view-container .header-social-media li .tool::before {
+header .first-view-container .header-social-media li .tool::before {
   content: "";
   -webkit-transition: all 200ms;
   transition: all 200ms;
@@ -462,7 +463,7 @@ body header .first-view-container .header-social-media li .tool::before {
   border: 20px solid transparent;
   border-top-color: #333333;
 }
-body header .first-view-container .header-social-media li a {
+header .first-view-container .header-social-media li a {
   display: inline-block;
   padding: 1rem;
   background-color: #333333;
@@ -471,18 +472,18 @@ body header .first-view-container .header-social-media li a {
   -webkit-transition: all 200ms;
   transition: all 200ms;
 }
-body header .first-view-container .header-social-media li a:hover {
+header .first-view-container .header-social-media li a:hover {
   -webkit-transform: translateY(-5px);
           transform: translateY(-5px);
 }
-body header .first-view-container .header-social-media li a:hover .tool, body header .first-view-container .header-social-media li a .tool::before {
+header .first-view-container .header-social-media li a:hover .tool, header .first-view-container .header-social-media li a .tool::before {
   -webkit-transform: scale(1);
           transform: scale(1);
 }
-body header .first-view-container .header-social-media li:last-of-type a {
+header .first-view-container .header-social-media li:last-of-type a {
   padding: 1.4rem;
 }
-body header .semicircleHeader {
+header .semicircleHeader {
   opacity: 0;
   display: inline-block;
   position: absolute;
@@ -492,10 +493,11 @@ body header .semicircleHeader {
   width: 100%;
   border-radius: 500px 500px 0 0;
 }
-body main #skillSet {
+
+main #skillSet {
   height: 100vh;
 }
-body main #skillSet .semicircleSkill {
+main #skillSet .semicircleSkill {
   opacity: 1;
   display: inline-block;
   background-color: #33dd8b;
@@ -503,44 +505,25 @@ body main #skillSet .semicircleSkill {
   width: 100%;
   border-radius: 0 0 500px 500px;
 }
-body main #skillSet .semicircleSkill span {
+main #skillSet .semicircleSkill span {
   color: white;
   font-weight: bold;
   font-size: 3rem;
 }
-body main #skillSet .skillSet-container {
+main #skillSet .skillSet-container {
   height: 90vh;
   width: 100%;
   padding: 3rem;
+  overflow-x: hidden;
 }
-body main #skillSet .skillSet-container ul {
-  cursor: pointer;
-  height: 100%;
-  margin: 0;
-  padding: 0%;
-  background-color: #f8f8f8;
-  border-radius: 10px;
-  padding: 1rem;
-  -webkit-transition: all 200ms;
-  transition: all 200ms;
-  -webkit-box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.246);
-          box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.246);
-}
-body main #skillSet .skillSet-container ul:hover {
-  background-color: #fdfdfd;
-}
-body main #skillSet .skillSet-container ul:hover .skillSet-text {
-  font-size: 5.5rem;
-}
-body main #skillSet .skillSet-container ul > div {
-  position: relative;
-}
-body main #skillSet .skillSet-container ul > div .skill-card {
+main #skillSet .skillSet-container .skill-card {
   z-index: 2;
-  position: absolute;
+  position: relative;
+  padding-left: 1rem;
 }
-body main #skillSet .skillSet-container ul > div .skill-card div {
+main #skillSet .skillSet-container .skill-card div {
   position: absolute;
+  top: 1rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -555,18 +538,43 @@ body main #skillSet .skillSet-container ul > div .skill-card div {
   -webkit-transition: all 1.2s;
   transition: all 1.2s;
 }
-body main #skillSet .skillSet-container ul > div .skill-card img {
+main #skillSet .skillSet-container .skill-card img {
   height: 72vh;
+  position: relative;
 }
-body main #skillSet .skillSet-container ul > div .skill-card .front {
+main #skillSet .skillSet-container .skill-card .front {
   -webkit-transform: perspective(1000px) rotateY(0deg);
           transform: perspective(1000px) rotateY(0deg);
 }
-body main #skillSet .skillSet-container ul > div .skill-card .back {
+main #skillSet .skillSet-container .skill-card .back {
   -webkit-transform: perspective(1000px) rotateY(180deg);
           transform: perspective(1000px) rotateY(180deg);
 }
-body main #skillSet .skillSet-container ul > div .skillSet-text {
+main #skillSet .skillSet-container ul {
+  cursor: pointer;
+  height: 100%;
+  margin: 0;
+  padding: 0%;
+  background-color: #f8f8f8;
+  border-radius: 10px;
+  padding: 1rem;
+  -webkit-transition: all 200ms;
+  transition: all 200ms;
+  -webkit-box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.246);
+          box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.246);
+  overflow: auto;
+  position: relative;
+}
+main #skillSet .skillSet-container ul:hover {
+  background-color: #fdfdfd;
+}
+main #skillSet .skillSet-container ul:hover .skillSet-text {
+  font-size: 5.5rem;
+}
+main #skillSet .skillSet-container ul > div {
+  position: relative;
+}
+main #skillSet .skillSet-container ul > div .skillSet-text {
   z-index: 1;
   position: absolute;
   top: 10rem;
@@ -576,7 +584,102 @@ body main #skillSet .skillSet-container ul > div .skillSet-text {
   font-size: 5rem;
   margin-left: 0rem;
   width: 65%;
+  height: 20rem;
   text-align: center;
   -webkit-transition: all 200ms;
   transition: all 200ms;
+}
+main #skillSet .skillSet-container ul > div .skillSet-text + img {
+  position: absolute;
+  top: 2rem;
+  left: 40%;
+  height: 30rem;
+}
+main #skillSet .skillSet-container ul .skill {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+main #skillSet .skillSet-container ul .skill > div:first-of-type {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+  overflow: hidden;
+  border-radius: 100%;
+  padding: 0;
+  margin: 0 12px;
+  height: 5.6rem;
+  width: 5.6rem;
+  cursor: -webkit-zoom-in;
+  cursor: zoom-in;
+}
+main #skillSet .skillSet-container ul .skill > div:first-of-type:hover::before {
+  height: 10rem;
+  width: 10rem;
+}
+main #skillSet .skillSet-container ul .skill > div:first-of-type:hover span {
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
+}
+main #skillSet .skillSet-container ul .skill > div:first-of-type::before {
+  content: "";
+  position: absolute;
+  bottom: -50px;
+  left: -1rem;
+  background-color: #333333;
+  height: 3rem;
+  width: 3rem;
+  border-radius: 100%;
+  -webkit-transition: all 500ms;
+  transition: all 500ms;
+}
+main #skillSet .skillSet-container ul .skill > div:first-of-type img {
+  display: none;
+  height: 5rem;
+}
+main #skillSet .skillSet-container ul .skill > div:first-of-type span {
+  position: absolute;
+  color: white;
+  font-weight: bold;
+  font-size: 1rem;
+  -webkit-transform: translateY(50px);
+          transform: translateY(50px);
+  -webkit-transition: all 500ms;
+  transition: all 500ms;
+}
+main #skillSet .skillSet-container ul .skill .skill-bar-container {
+  opacity: 0;
+  padding: 3px;
+  border: 3px #33dd8b solid;
+  border-radius: 50px;
+  height: 30px;
+  -webkit-transition: all 1s;
+  transition: all 1s;
+}
+main #skillSet .skillSet-container ul .skill .skill-bar-container .skill-bar {
+  background-color: #333333;
+  height: 100%;
+  width: 0%;
+  border-radius: 50px;
+  -webkit-transition: all 1s;
+  transition: all 1s;
+}
+main #skillSet .skillSet-container ul li:nth-of-type(3) img {
+  height: 4rem !important;
+}
+main #skillSet .skillSet-container ul li:nth-of-type(4) img {
+  margin-top: 3px !important;
+}
+main #skillSet .skillSet-container ul li:nth-of-type(7) img {
+  height: 5.5rem !important;
 }
