@@ -223,7 +223,7 @@ $(document).ready(()=>{
 
     /* ********************** SKILL SET EVENTS ********************** */
 
-    //TRANSLATING THE SKILL SET IMAGE TO RIGHT
+    //TRANSLATING THE SKILL SET IMAGE TO RIGHT WHEN CLICK
     $(".skillSet-container ul").click(()=>{
         let w = $(".skillSet-container ul").width();
         let innerW;
@@ -239,6 +239,74 @@ $(document).ready(()=>{
         $(".skill-card .front").css({"transform":"perspective(1000px) rotateY(180deg)"})
         $(".skill-card .back").css({"transform":"perspective(1000px) rotateY(360deg)"})
         skillImgs();
+        //SETING DISPLAY FLEX TO SKILL LIST ITEMS
+        $(".skill").css({"display":"flex"});
+    })
+
+    /* ********************** PORTFOLIO EVENTS ********************** */
+
+    // $(".menu-hover").on("mouseover",()=>{
+    //ADDING SELECT SKILL TO FIND SKILL
+    let arr=0;
+    $(".select-skill").click((event)=>{
+        let valid = true;
+
+        arr = $(".find-skill");
+        for(let i = 0;i<arr.length;i++){
+            if($(event.currentTarget).text()==$(arr[i]).text()){
+                valid = false;
+                break;
+            }
+        }
+        //VALIDATING THAT THE SKILL CAN BE SHOWED ONLY ONCE
+        if(valid){
+            $(event.currentTarget).addClass("selected-skill")
+            $(".selected-skills").append(`<button class='find-skill'>${$(event.currentTarget).text()}</button>`)
+            $(".find-skill").animate({opacity:"1"},200)
+
+            //ADDING THE ELIMINATION EVENT TO FIND-SKILL
+            $(".find-skill").on("click",(e)=>{
+                arr = $(".selected-skill");
+                for(let i = 0;i<arr.length;i++){
+                    if($(e.currentTarget).text()==$(arr[i]).text()){
+                        $(arr[i]).removeClass("selected-skill")
+                        break;
+                    }
+                }
+                $(e.currentTarget).remove();
+            });
+        }
+    });
+
+    //SETTING THE SELECTED-SKILLS CONTAINER BLANK
+    $("#blank").click(()=>{
+        $(".selected-skills").empty();
+        $(".selected-skill").removeClass("selected-skill")
+    })
+
+    //ADDING THE SKILL IF CLICK ON ADD
+    $(".add").click(()=>{
+        if($(".search-skills").val().trim().length != 0){
+            $(".selected-skills").append(`<button class='find-skill'>${$(".search-skills").val().toUpperCase()}</button>`);
+            $(".find-skill").on("click",(e)=>{
+                $(e.currentTarget).remove()
+            })
+            $(".search-skills").val("")
+            $(".find-skill").animate({opacity:"1"},200);
+        }
+    });
+
+    //TYPING EVENTS
+    $(".search-skills").keydown((event)=>{
+        if(event.keyCode==13 && $(".search-skills").val().trim().length != 0){
+            $(".selected-skills").append(`<button class='find-skill'>${$(".search-skills").val().toUpperCase()}</button>`);
+            $(".find-skill").on("click",(e)=>{
+                $(e.currentTarget).remove()
+            })
+            $(".search-skills").val("")
+            $(".find-skill").animate({opacity:"1"},200);
+        }
+        return soloLetras(event);
     })
 
     /* ********************** FUNCTIONS ********************** */

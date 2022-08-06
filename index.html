@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="./css/index.css">
     <!-- JAVASCRIPT -->
     <script src="./js/jquery-3.6.0.min.js"></script>
+    <script src="./js/validaciones.js"></script>
     <script src="./js/main.js"></script>
     <!-- GOOGLE FONT -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -34,7 +35,7 @@
                     </a>
                 </li>
                 <li id="menu-item-2" class="menu-item">
-                    <a href="#">
+                    <a href="#portfolio">
                         <span>Portfolio</span>
                     </a>
                 </li>
@@ -227,6 +228,50 @@
                         </div>
                     </li>
                 </ul>
+            </div>
+        </section>
+        <section  id="portfolio" class="container-fluid">
+            <span>Portfolio</span>
+            <div class="container">
+                <section id="find-container" class="row">
+                    <div class="col-6 select">
+                        <p>SELECT THE SKILL</p>
+                        <div class="options">
+                            <div class="form-check form-switch" id="show-skills">
+                                <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+                                <label class="form-check-label" for="flexSwitchCheckDefault">Show Skills</label>
+                            </div>
+                        </div>
+                        <div class="select-skills">
+                            <button class="select-skill">HTML</button>
+                            <button class="select-skill">CSS</button>
+                            <button class="select-skill">RESPONSIVE</button>
+                            <button class="select-skill">GIT</button>
+                            <button class="select-skill">SASS</button>
+                            <button class="select-skill">JAVASCRIPT</button>
+                            <button class="select-skill">WORDPRESS</button>
+                            <button class="select-skill">BOOTSTRAP</button>
+                            <button class="select-skill">PHP</button>
+                            <button class="select-skill">MYSQL</button>
+                            <button class="select-skill">RESPONSIVE DESIGN</button>
+                            <button class="select-skill">UI</button>
+                            <button class="select-skill">UX</button>
+                            <button class="select-skill">POO</button>
+                            <button class="select-skill">JSON</button>
+                            <button class="select-skill">JQUERY</button>
+                        </div>
+                    </div>
+                    <div class="col-6 find">
+                        <p>FIND THE SKILL</p>
+                        <div class="search-skills-container">
+                            <input type="text" placeholder="Type the skill:" class="search-skills">
+                            <button class="add">Add</button>
+                            <button id="blank">Blank</button>
+                        </div>
+                        <div class="selected-skills"></div>
+                    </div>
+                </section>
+                <section id="projects"></section>
             </div>
         </section>
     </main>

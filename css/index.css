@@ -60,6 +60,7 @@ header .menu .menu-hover {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  border: 1px white solid;
 }
 header .menu .menu-hover:hover {
   background-color: #44e095;
@@ -113,6 +114,7 @@ header .menu .menu-item {
   border-radius: 10px;
   font-size: 1.1rem;
   font-weight: 600 !important;
+  border: 1px white solid;
 }
 header .menu .menu-item:hover {
   background-color: #23d37e;
@@ -602,6 +604,7 @@ main #skillSet .skillSet-container ul .skill {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  display: none;
 }
 main #skillSet .skillSet-container ul .skill > div:first-of-type {
   display: -webkit-box;
@@ -682,4 +685,208 @@ main #skillSet .skillSet-container ul li:nth-of-type(4) img {
 }
 main #skillSet .skillSet-container ul li:nth-of-type(7) img {
   height: 5.5rem !important;
+}
+main #portfolio {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 100vh;
+}
+main #portfolio > span {
+  color: #333333;
+  font-weight: bold;
+  font-size: 4rem;
+}
+main #portfolio #find-container {
+  width: 100%;
+  background-color: #333333;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  padding: 1rem;
+  margin: 0%;
+}
+main #portfolio #find-container .select p {
+  font-size: 1.5rem;
+  color: white;
+  font-weight: bold;
+}
+main #portfolio #find-container .select .options {
+  height: 40px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 1rem;
+}
+main #portfolio #find-container .select .options #show-skills {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-right: 1rem;
+  cursor: pointer;
+}
+main #portfolio #find-container .select .options #show-skills input {
+  cursor: pointer;
+  -webkit-transition: all 200ms;
+  transition: all 200ms;
+}
+main #portfolio #find-container .select .options #show-skills input:focus {
+  background-image: url("../img/switch.png") !important;
+  -webkit-box-shadow: 0 0 0 0.2rem rgba(51, 221, 139, 0.4509803922);
+          box-shadow: 0 0 0 0.2rem rgba(51, 221, 139, 0.4509803922);
+  border: 1px #33dd8b solid !important;
+}
+main #portfolio #find-container .select .options #show-skills input:checked {
+  background-image: url("../img/switch-checked.png") !important;
+  background-color: #33dd8b !important;
+  border: 1px #33dd8b solid !important;
+}
+main #portfolio #find-container .select .options #show-skills label {
+  color: white;
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin-left: 0.5rem;
+  cursor: pointer;
+}
+main #portfolio #find-container .select .select-skills {
+  height: 11rem;
+  width: 70%;
+  border-radius: 10px;
+  background-color: white;
+  padding: 0.5rem;
+  cursor: default;
+}
+main #portfolio #find-container .select .select-skills button {
+  display: inline-block;
+  color: #333333;
+  font-weight: bold;
+  background-color: #33dd8b;
+  padding: 0.4rem 0.6rem;
+  border-radius: 5px;
+  border: 0px;
+  margin: 0.1rem 0;
+  -webkit-transition: all 200ms;
+  transition: all 200ms;
+}
+main #portfolio #find-container .select .select-skills button:hover {
+  background-color: #49e197;
+  cursor: pointer;
+}
+main #portfolio #find-container .select .select-skills .selected-skill {
+  background-color: #333333;
+  color: #33dd8b;
+  -webkit-transition: all 200ms;
+  transition: all 200ms;
+}
+main #portfolio #find-container .select .select-skills .selected-skill:hover {
+  background-color: #404040;
+  cursor: pointer;
+}
+main #portfolio #find-container .find p {
+  font-size: 1.5rem;
+  color: white;
+  font-weight: bold;
+}
+main #portfolio #find-container .find .search-skills-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 1rem;
+}
+main #portfolio #find-container .find .search-skills-container .search-skills {
+  border: 1px grey solid;
+  padding: 0.5rem 0.75rem 0.45rem 0.5rem;
+  border: 0px transparent solid;
+  -webkit-transition: all 200ms;
+  transition: all 200ms;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  width: 50%;
+}
+main #portfolio #find-container .find .search-skills-container .search-skills:focus {
+  outline: none !important;
+  outline-color: none !important;
+  outline-style: none !important;
+  outline-width: 0 !important;
+  border-left: 0px transparent solid;
+  -webkit-box-shadow: 0 0 0 0.2rem rgba(51, 221, 139, 0.4509803922);
+          box-shadow: 0 0 0 0.2rem rgba(51, 221, 139, 0.4509803922);
+}
+main #portfolio #find-container .find .search-skills-container button {
+  display: inline-block;
+  background-color: #23d37e;
+  padding: 0.5rem;
+  height: 100%;
+  color: #333333;
+  font-weight: bold;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  -webkit-transition: all 200ms;
+  transition: all 200ms;
+  border: none;
+}
+main #portfolio #find-container .find .search-skills-container button:hover {
+  background-color: #49e197;
+  cursor: pointer;
+}
+main #portfolio #find-container .find .search-skills-container #blank {
+  color: #333333;
+  font-weight: bold;
+  font-size: 1.1rem;
+  background-color: #23d37e;
+  padding: 0.35rem;
+  border-radius: 5px;
+  -webkit-transition: all 200ms;
+  transition: all 200ms;
+  margin-left: 1rem;
+  border: none;
+}
+main #portfolio #find-container .find .search-skills-container #blank:hover {
+  background-color: #49e197;
+  cursor: pointer;
+}
+main #portfolio #find-container .find .selected-skills {
+  height: 11rem;
+  max-height: 11rem;
+  width: 70%;
+  border-radius: 10px;
+  background-color: white;
+  padding: 0.5rem;
+  cursor: default;
+}
+main #portfolio #find-container .find .selected-skills button {
+  display: inline-block;
+  opacity: 0;
+  color: #333333;
+  font-weight: bold;
+  background-color: #33dd8b;
+  padding: 0.4rem 0.6rem;
+  border-radius: 5px;
+  border: 0px;
+  margin: 0.1rem 0.1rem;
+  -webkit-transition: all 200ms;
+  transition: all 200ms;
+}
+main #portfolio #find-container .find .selected-skills button:hover {
+  background-color: #49e197;
+  cursor: pointer;
+}
+main #portfolio #projects {
+  height: 100vh;
+  background-color: #33dd8b;
 }
