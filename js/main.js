@@ -12,8 +12,13 @@ $(document).ready(()=>{
     let item4= document.getElementById("menu-item-4");
     /* INITIAL EFFECTS */
     setTimeout(()=>{
+        let aux=0;
+        if(window.innerWidth<=575){
+            aux=-20;
+        }else
+            aux=0;
         $(".menu-hover").animate({
-            right:"0px"
+            right:`${aux}px`
         },300)
     },1000)
 
@@ -452,9 +457,15 @@ $(document).ready(()=>{
     
     //EFFECTS OF FIRST SECTION (FIRST VIEW)
     async function firstViewEffects(){
+        let aux =0;
+        if(window.innerWidth <=575){
+            aux=130;
+        }else{
+            aux=90
+        }
         setTimeout(()=>{
             $(".semicircleHeader").animate({
-                top:"90vh",
+                top:`${aux}vh`,
                 opacity:"1"
             },600,()=>{
                 $(".ribbon").slideDown();
@@ -464,14 +475,15 @@ $(document).ready(()=>{
                 },600,()=>{
                     setTimeout(()=>{
                         $(".text-header-container p:not(.text-header-container div > p b)").fadeIn();
-                        if(window.innerHeight >= 991)
+                        if(window.innerWidth >= 991)
                             $(".line").fadeIn();
                     }, 1000);
                     setTimeout(()=>{
-                        $(".text-header-container div > p b").fadeIn(400);
-                        $(".text-header-container img").fadeIn(400,()=>{
-                            $(".header-social-media li:first-of-type").fadeIn(300,()=>$(".header-social-media li:nth-of-type(2)").fadeIn(300,()=>$(".header-social-media li:nth-of-type(3)").fadeIn(300,()=>$(".header-social-media li:nth-of-type(4)").fadeIn(300,()=>$(".header-social-media li:nth-of-type(5)").fadeIn(300,()=>$(".header-social-media li:nth-of-type(6)").fadeIn(300))))));
-                        });
+                        if(window.innerWidth > 576){
+                            $(".text-header-container div > p b").fadeIn(400);
+                            $(".text-header-container img").fadeIn(400);
+                        }
+                        $(".header-social-media li:first-of-type").fadeIn(300,()=>$(".header-social-media li:nth-of-type(2)").fadeIn(300,()=>$(".header-social-media li:nth-of-type(3)").fadeIn(300,()=>$(".header-social-media li:nth-of-type(4)").fadeIn(300,()=>$(".header-social-media li:nth-of-type(5)").fadeIn(300,()=>$(".header-social-media li:nth-of-type(6)").fadeIn(300))))));
                     }, 2000);
                 });
             });
