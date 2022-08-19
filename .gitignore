@@ -1,0 +1,4 @@
+#Ignorando los Archivos PSD
+*PSD/
+#Ignorando archivos extras del proyecto
+*Archivos Extras/

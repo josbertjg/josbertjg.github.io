@@ -15,57 +15,57 @@ $(document).ready(()=>{
         $(".menu-hover").animate({
             right:"0px"
         },300)
-        $(".semicircleHeader").animate({
-            top:"90vh",
-            opacity:"1"
-        },600,()=>{
-            $(".ribbon").slideDown();
-            $(".image-header-container img").animate({
-                left:"0px",
-                opacity:"1"
-            },600,()=>{
-                setTimeout(()=>{
-                    $(".text-header-container p:not(.text-header-container div > p b)").fadeIn();
-                    $(".line").fadeIn();
-                }, 1000);
-                setTimeout(()=>{
-                    $(".text-header-container div > p b").fadeIn(400);
-                    $(".text-header-container img").fadeIn(400,()=>{
-                        $(".header-social-media li:first-of-type").fadeIn(300,()=>$(".header-social-media li:nth-of-type(2)").fadeIn(300,()=>$(".header-social-media li:nth-of-type(3)").fadeIn(300,()=>$(".header-social-media li:nth-of-type(4)").fadeIn(300,()=>$(".header-social-media li:nth-of-type(5)").fadeIn(300,()=>$(".header-social-media li:nth-of-type(6)").fadeIn(300))))));
-                        // $(".semicircleSkill").animate({
-                        //     opacity:"1"
-                        // },300)
-                    });
-                }, 2000);
-            })
-        })
     },1000)
+
+    //EFFECTS OF THE PAGE
+    //FIRST VIEW EFFECTS
+    if(isInViewport(document.getElementById("first-view-container")))
+        firstViewEffects();
+
+    //ABOUT ARROW EFFECTS
+    let show_about_arrows=true;
+    setInterval(() => {
+        if(show_about_arrows){
+            show_about_arrows=false;
+            $(".about-arrow").fadeIn("fast")
+        }else{
+            show_about_arrows=true;
+            $(".about-arrow").fadeOut("fast")
+        }
+    }, 1500);
     //CALLING TEMPORAL EFFECTS
     clearInterval(intervalWave);
     tempEffects();
     //DETECTING SCROLL
     let showArrow=true;
     $(window).scroll(()=>{
+        //EFFECTS OF THE PAGE
+        if(isInViewport(document.getElementById("first-view-container")))
+            firstViewEffects();
+
+        //MENU EVENTS
         if(window.scrollY>300){
             if(showArrow){
-                $(".menu-hover p").animate({
-                    top:'20px',
-                    opacity:'0'
-                },300,()=>{
-                    setTimeout(()=>{
-                        $(".menu-hover p").empty();
-                        $(".arrow-container").show();
-                        $(".menu-hover p").html("¡DOBLE CLICK ME!");        
-                        $(".menu-hover p").animate({
-                            top:'0px',
-                            opacity:'1',
-                        },250);
-                        $(".menu-hover .arrow-container").animate({
-                            top:'0px',
-                            opacity:'1',
-                        },490);
-                    },200)
-                });
+                setTimeout(()=>{
+                    $(".menu-hover p").animate({
+                        top:'20px',
+                        opacity:'0'
+                    },300,()=>{
+                        setTimeout(()=>{
+                            $(".menu-hover p").empty();
+                            $(".arrow-container").show();
+                            $(".menu-hover p").html("¡DOBLE CLICK ME!");        
+                            $(".menu-hover p").animate({
+                                top:'0px',
+                                opacity:'1',
+                            },250);
+                            $(".menu-hover .arrow-container").animate({
+                                top:'0px',
+                                opacity:'1',
+                            },490);
+                        },200)
+                    });
+                },600);
                 //SENDING THE MENU TO BOTTOM
                 innerHeight=window.innerHeight;
                 $(".menu-hover").animate({
@@ -81,14 +81,15 @@ $(document).ready(()=>{
                 fadeOutMenu();
                 show=true;
             }
-        }
-        else{
+        }else{
             if(!showArrow){
-                fadeElement(".menu-hover p","¡I'M THE MENU!");
-                $(".menu-hover .arrow-container").animate({
-                    top:'20px',
-                    opacity:'0'
-                },300).hide(300)
+                setTimeout(() => {
+                    fadeElement(".menu-hover p","¡I'M THE MENU!");
+                    $(".menu-hover .arrow-container").animate({
+                        top:'20px',
+                        opacity:'0'
+                    },300).hide(300)
+                }, 600);
                 //SENDING THE MENU TO BOTTOM
                 $(".menu-hover").animate({
                     top : `0px`
@@ -105,7 +106,7 @@ $(document).ready(()=>{
             }
         }
     });
-    //IF THE PAGE IS RELOADED ON A PIXEL HIGHER THAN 301, THEN THE ARROW APEARS AND THE MENU GO DOWN
+    //IF THE PAGE IS RELOADED ON A PIXEL HIGHER THAN 301, THEN THE ARROW APEARS AND THE MENU GOES DOWN
     if(window.scrollY>=300){
         $(".menu-hover p").animate({
             top:'20px',
@@ -245,12 +246,18 @@ $(document).ready(()=>{
 
     /* ********************** PORTFOLIO EVENTS ********************** */
 
-    // $(".menu-hover").on("mouseover",()=>{
     //ADDING SELECT SKILL TO FIND SKILL
     let arr=0;
+    let arrProjects = $(".project-container"); 
+    //SHOWING THE COUNT OF PROJECTS
+    $("#cantProjects").text(`${arrProjects.length} Projects`)
+
+    let arrSelectedSkills= [];
+    let count=0,position=0;
     $(".select-skill").click((event)=>{
         let valid = true;
 
+        //VALIDATING THAT THE SKILL CAN BE SHOWED ONLY ONCE
         arr = $(".find-skill");
         for(let i = 0;i<arr.length;i++){
             if($(event.currentTarget).text()==$(arr[i]).text()){
@@ -258,14 +265,13 @@ $(document).ready(()=>{
                 break;
             }
         }
-        //VALIDATING THAT THE SKILL CAN BE SHOWED ONLY ONCE
+        
         if(valid){
             $(event.currentTarget).addClass("selected-skill")
-            $(".selected-skills").append(`<button class='find-skill'>${$(event.currentTarget).text()}</button>`)
+            $(".selected-skills").append(`<button class='find-skill find${count}'>${$(event.currentTarget).text()}</button>`)
             $(".find-skill").animate({opacity:"1"},200)
-
             //ADDING THE ELIMINATION EVENT TO FIND-SKILL
-            $(".find-skill").on("click",(e)=>{
+            $(".find"+count).on("click",(e)=>{
                 arr = $(".selected-skill");
                 for(let i = 0;i<arr.length;i++){
                     if($(e.currentTarget).text()==$(arr[i]).text()){
@@ -274,23 +280,58 @@ $(document).ready(()=>{
                     }
                 }
                 $(e.currentTarget).remove();
+
+                position=arrSelectedSkills.indexOf($(e.currentTarget).text());
+                arrSelectedSkills.splice(position,1);
+                lookingForProjects(arrProjects,arrSelectedSkills);
             });
+            //SHOWING ONLY PROJECTS WITH THE SELECTED SKILLS
+            arrSelectedSkills.push($(event.currentTarget).text());
+            console.log(arrProjects)
+            lookingForProjects(arrProjects,arrSelectedSkills);
+            count++;
         }
     });
 
     //SETTING THE SELECTED-SKILLS CONTAINER BLANK
     $("#blank").click(()=>{
         $(".selected-skills").empty();
-        $(".selected-skill").removeClass("selected-skill")
+        $(".selected-skill").removeClass("selected-skill");
+        arrSelectedSkills=[];
+        lookingForProjects(arrProjects,arrSelectedSkills);
     })
 
     //ADDING THE SKILL IF CLICK ON ADD
+    let numAux=0;
     $(".add").click(()=>{
         if($(".search-skills").val().trim().length != 0){
-            $(".selected-skills").append(`<button class='find-skill'>${$(".search-skills").val().toUpperCase()}</button>`);
-            $(".find-skill").on("click",(e)=>{
+            $(".selected-skills").append(`<button class='find-skill search${numAux}'>${$(".search-skills").val().toUpperCase()}</button>`);
+
+            $(".search"+numAux).on("click",(e)=>{
+                arr = $(".selected-skill");
+                for(let i=0;i<arr.length;i++){
+                    if($(arr[i]).text()==$(e.currentTarget).text()){
+                        $(arr[i]).removeClass("selected-skill");
+                    }
+                }
+                //LOOKING FOR THE PROJECT
+                position=arrSelectedSkills.indexOf($(e.currentTarget).text());
+                arrSelectedSkills.splice(position,1);
+                lookingForProjects(arrProjects,arrSelectedSkills);
                 $(e.currentTarget).remove()
-            })
+            });
+
+            //ADDING THE STYLE IF THERE ARE IQUAL BUTTONS
+            arr = $(".select-skill");
+            for(let i=0;i<arr.length;i++){
+                if($(arr[i]).text()==$(".search-skills").val().toUpperCase()){
+                    $(arr[i]).addClass("selected-skill");
+                }
+            }
+            //LOOKING FOR THE PROJECT
+            arrSelectedSkills.push($(".search-skills").val().toUpperCase());
+            lookingForProjects(arrProjects,arrSelectedSkills);
+
             $(".search-skills").val("")
             $(".find-skill").animate({opacity:"1"},200);
         }
@@ -299,28 +340,154 @@ $(document).ready(()=>{
     //TYPING EVENTS
     $(".search-skills").keydown((event)=>{
         if(event.keyCode==13 && $(".search-skills").val().trim().length != 0){
-            $(".selected-skills").append(`<button class='find-skill'>${$(".search-skills").val().toUpperCase()}</button>`);
-            $(".find-skill").on("click",(e)=>{
+            $(".selected-skills").append(`<button class='find-skill search${numAux}'>${$(".search-skills").val().toUpperCase()}</button>`);
+
+            $(".search"+numAux).on("click",(e)=>{
+                arr = $(".selected-skill");
+                for(let i=0;i<arr.length;i++){
+                    if($(arr[i]).text()==$(e.currentTarget).text()){
+                        $(arr[i]).removeClass("selected-skill");
+                    }
+                }
+                //LOOKING FOR THE PROJECT
+                position=arrSelectedSkills.indexOf($(e.currentTarget).text());
+                arrSelectedSkills.splice(position,1);
+                lookingForProjects(arrProjects,arrSelectedSkills);
                 $(e.currentTarget).remove()
-            })
+            });
+
+            //ADDING THE STYLE IF THERE ARE IQUAL BUTTONS
+            arr = $(".select-skill");
+            for(let i=0;i<arr.length;i++){
+                if($(arr[i]).text()==$(".search-skills").val().toUpperCase()){
+                    $(arr[i]).addClass("selected-skill");
+                }
+            }
+            //LOOKING FOR THE PROJECT
+            arrSelectedSkills.push($(".search-skills").val().toUpperCase());
+            lookingForProjects(arrProjects,arrSelectedSkills);
+
             $(".search-skills").val("")
             $(".find-skill").animate({opacity:"1"},200);
+            numAux++;
         }
         return soloLetras(event);
+    });
+
+    //SWITCH EVENT
+    $(".form-check-input").click((event)=>{
+        if($(event.currentTarget).attr("checked") || $(event.currentTarget).prop("checked")){
+            $(".project-skills").fadeIn()
+            $(".project-skills").css({"display":"flex"})
+        }else{
+            $(".project-skills").fadeOut()
+        }
+    });
+
+    /* ********************** PROJECT EVENTS ********************** */
+
+    //SETTING THE PROJECT SKILLS
+    for(let i=0;i<arrProjects.length;i++){
+        let arrString=$(arrProjects[i]).attr("skills");
+        arrString=arrString.split(" ");
+        for(let j =0;j<arrString.length;j++)
+            $(arrProjects[i].childNodes[7]).append(`<span>${arrString[j]}</span>`)
+    }
+
+    /* ********************** CONTACT EVENTS ********************** */
+    
+    //VALIDATING INPUTS
+    $("[name='name']").keydown((event)=>{
+        return soloLetras(event);
+    });
+    $("[name='email']").on({
+        "blur":()=>{
+            if(!validarCorreo($("[name='email']").val()) && $("[name='email']").val().trim().length > 0){
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'El correo que introduciste es invalido, intentalo de nuevo...',
+                });
+                $("[name='email']").val("");
+            }
+        },
+        "keyup":(event)=>{
+            if(event.keyCode == 13 && $("[name='email']").val().trim().length > 0)
+                if(!validarCorreo($("[name='email']").val())){
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'El correo que introduciste es invalido, intentalo de nuevo...',
+                    });
+                    $("[name='email']").val("");
+                }
+        }
     })
+
+    //SENDING EMAIL WITH MAILTO
+    $("#btnSend").click(()=>{
+
+        if(validarLength($("[name='name']").val()) && validarLength($("[name='email']").val()) && validarLength($("[name='message']").val())){
+            $("#mailto").attr("href",`mailto:josbertjg@gmail.com?subject=¡Hola! Mi nombre es ${$("[name='name']").val().toUpperCase()} y quiero contactar contigo! | Mi correo es: ${$("[name='email']").val()}&body=${$("[name='message']").val()}`);
+            document.getElementById("mailto").click();
+        }else{
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Los campos del formulario no deben estar vacíos.',
+            });
+        }
+
+    });
 
     /* ********************** FUNCTIONS ********************** */
 
+    //INITIAL EFFECTS
+
+    //DETECTING IF AN ELEMENT IS ON VIEWPORT
+    function isInViewport(elem) {
+        let distance = elem.getBoundingClientRect();
+        return (distance.top < (window.innerHeight || document.documentElement.clientHeight) && distance.bottom > 0);
+    }
+    
+    //EFFECTS OF FIRST SECTION (FIRST VIEW)
+    async function firstViewEffects(){
+        setTimeout(()=>{
+            $(".semicircleHeader").animate({
+                top:"90vh",
+                opacity:"1"
+            },600,()=>{
+                $(".ribbon").slideDown();
+                $(".image-header-container img").animate({
+                    left:"0px",
+                    opacity:"1"
+                },600,()=>{
+                    setTimeout(()=>{
+                        $(".text-header-container p:not(.text-header-container div > p b)").fadeIn();
+                        if(window.innerHeight >= 991)
+                            $(".line").fadeIn();
+                    }, 1000);
+                    setTimeout(()=>{
+                        $(".text-header-container div > p b").fadeIn(400);
+                        $(".text-header-container img").fadeIn(400,()=>{
+                            $(".header-social-media li:first-of-type").fadeIn(300,()=>$(".header-social-media li:nth-of-type(2)").fadeIn(300,()=>$(".header-social-media li:nth-of-type(3)").fadeIn(300,()=>$(".header-social-media li:nth-of-type(4)").fadeIn(300,()=>$(".header-social-media li:nth-of-type(5)").fadeIn(300,()=>$(".header-social-media li:nth-of-type(6)").fadeIn(300))))));
+                        });
+                    }, 2000);
+                });
+            });
+        },1000)
+    };
+
     //FADE IN MENU ITEMS
-    function fadeInMenu(){
+    async function fadeInMenu(){
         $("#menu-item-1").fadeIn("fast",()=>$("#menu-item-2").fadeIn("fast",()=>$("#menu-item-3").fadeIn("fast",()=>$("#menu-item-4").fadeIn("fast"))));
     }
     //FADE OUT ITEMS MENU
-    function fadeOutMenu(){
+    async function fadeOutMenu(){
         $("#menu-item-4").fadeOut("fast",()=>$("#menu-item-3").fadeOut("fast",()=>$("#menu-item-2").fadeOut("fast",()=>$("#menu-item-1").fadeOut("fast"))));
     }
     //FADING ELEMENTS
-    function fadeElement(element,html){
+    async function fadeElement(element,html){
         $(element).animate({
             top:'20px',
             opacity:'0'
@@ -339,7 +506,7 @@ $(document).ready(()=>{
         })
     }
     //WAVES EFFECT
-    function waves(){
+    async function waves(){
         intervalWave=setInterval(()=>{
             $(".wave").animate({
                 height:'12rem',
@@ -351,7 +518,7 @@ $(document).ready(()=>{
         },500);
     }
     //ONE WAVE EFFECT
-    function oneWave(){
+    async function oneWave(){
         $(".wave").animate({
             height:'12rem',
             width:'12rem',
@@ -361,7 +528,7 @@ $(document).ready(()=>{
         })
     }
     //TEMPORAL MENU EFFECTS 
-    function tempEffects(){
+    async function tempEffects(){
         clearInterval(intervalWave);
         clearInterval(intervalEffects);
         intervalEffects=setInterval(()=>{
@@ -391,7 +558,7 @@ $(document).ready(()=>{
         },8000);
     }
     //SENDING MENU ITEMS DOWN
-    function menuItemsDown(){
+    async function menuItemsDown(){
         //ITEM 1
         $("#menu-item-1").animate({
             top:'0px',
@@ -442,7 +609,7 @@ $(document).ready(()=>{
         })
     }
     //SENDING MENU ITEMS UP
-    function menuItemsUp(){
+    async function menuItemsUp(){
         //ITEM 1
         $("#menu-item-1").animate({
             top:'17px',
@@ -493,7 +660,7 @@ $(document).ready(()=>{
         })
     }
     //SKILLS EFFECTS
-    function skillImgs(){
+    async function skillImgs(){
         let skillImg;
         let arrSkills = $(".skill");
         let i=0;
@@ -514,7 +681,7 @@ $(document).ready(()=>{
         //     },500)
         // }
     }
-    function skillContainers(){
+    async function skillContainers(){
         let skillBarContainer;
         let arrSkills = $(".skill");
         for(let i=0;i<arrSkills.length;i++){
@@ -524,7 +691,7 @@ $(document).ready(()=>{
             },1000,()=>skillLevels())
         }
     }
-    function skillLevels(){
+    async function skillLevels(){
         let skillBar,level;
         let arrSkills = $(".skill");
         for(let i=0;i<arrSkills.length;i++){
@@ -543,4 +710,35 @@ $(document).ready(()=>{
     // $("#scroller").click(()=>{
     //     window.scrollTo(0,0);
     // });
+
+    //LOOKING FOR PROJECTS WITH THE SELECTED SKILLS
+    async function lookingForProjects(projects,skills){
+        let numProjects=0;
+        let arrS=0;
+        console.log(skills);
+        
+        if(skills.length==0){
+            $(".project-container").fadeIn(200);
+            $(".project-container").css({"display":"flex"});
+            $("#cantProjects").text(`${projects.length} Projects`);
+        }else{
+            for(let i=0;i<projects.length;i++){
+                arrS=$(projects[i]).attr("skills");
+                arrS=arrS.split(" ");
+    
+                for(let j=0;j<skills.length;j++){
+                    if(arrS.indexOf(skills[j])==-1){
+                        $(projects[i]).fadeOut(200);
+                        break;
+                    }else
+                        if(j==(skills.length)-1){
+                            $(projects[i]).fadeIn(200);
+                            $(projects[i]).css({"display":"flex"})
+                            numProjects++;
+                        }
+                }
+            }
+            $("#cantProjects").text(`${numProjects} Projects`);
+        }
+    }
 });
