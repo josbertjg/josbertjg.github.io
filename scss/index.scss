@@ -45,6 +45,9 @@ header{
             border: 1px white solid;
             &:hover{
                 background-color: lighten($principal,4);
+                .wave{
+                    border: 4px lighten($principal,4) solid;
+                }
             }
             &:hover p{
                 font-size: 1.15rem;
@@ -199,7 +202,7 @@ header{
         //IMAGE
         .image-header-container{
             padding-top: 1rem;
-            @media (max-width:991px) {
+            @media (max-width:1013px) {
                 display: none;
             }
             img{
@@ -213,7 +216,7 @@ header{
         .text-header-container{
             position: relative;
             left: 0rem;
-            @media (max-width:991px) {
+            @media (max-width:1013px) {
                 left: 8rem;
             }
             @media (max-width:767px) {
@@ -396,9 +399,12 @@ header{
             position: absolute;
             top: 75vh;
             left: -1.5rem;
-            @media (max-width:991px) {
+            @media (max-width:1399px) {
                 left: -5rem;
             }
+            // @media (max-width:991px) {
+            //     left: -5rem;
+            // }
             @media (max-width:575px) {
                 flex-wrap: wrap;
                 left: -.5rem;
@@ -407,33 +413,6 @@ header{
             li{
                 display: none;
                 position: relative;
-                .tool{
-                    position: absolute;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    top: -4rem;
-                    left: -14.2rem;
-                    width: 200px !important;
-                    border-radius: 10px;
-                    text-align: center;
-                    background-color: $dark;
-                    color: $principal;
-                    font-weight: bold;
-                    padding: .5rem .75rem;
-                    transform: scale(0);
-                    transition: all 200ms;
-
-                    &::before{
-                        content: "";
-                        transition: all 200ms;
-                        transform: scale(0);
-                        position: absolute;
-                        top: 2.5rem;
-                        border: 20px solid transparent;
-                        border-top-color: $dark;
-                    }
-                }
                 a{
                     display: inline-block;
                     padding: 1rem;
@@ -452,12 +431,6 @@ header{
                     &:hover{
                         transform: translateY(-5px);
                     }
-                    &:hover .tool,.tool::before{
-                        transform: scale(1);
-                        @media (max-width:575px) {
-                            transform: scale(0);
-                        }
-                    }
                     img{
                         @media (max-width:1199px) {
                             height: 3rem;
@@ -468,7 +441,7 @@ header{
                     }
                 }
             }
-            & li:last-of-type{
+            & li:nth-child(6){
                 a{
                     padding: 1.4rem;
                     @media (max-width:1199px) {
@@ -754,13 +727,13 @@ main{
                             transition: all 200ms;
                             &:focus{
                                 background-image: url("../img/switch.png") !important;
-                                box-shadow: 0 0 0 0.2rem #33dd8b73;
-                                border: 1px #33dd8b solid !important;
+                                box-shadow: 0 0 0 0.2rem darken($principal,20);
+                                border: 1px $principal solid !important;
                             }
                             &:checked{
                                 background-image: url("../img/switch-checked.png") !important;
-                                background-color: #33dd8b !important;
-                                border: 1px #33dd8b solid !important;
+                                background-color: $principal !important;
+                                border: 1px $principal solid !important;
                             }
                         }
                         label{
@@ -788,13 +761,11 @@ main{
                     border-radius: 10px;
                     background-color: white;
                     padding: .5rem;
-                    @media (max-width:1399px) {
-                        overflow-y: scroll;
-                    }
+                    overflow-y: scroll;
                     cursor: default;
                     button{
                         display: inline-block;
-                        color: $dark;
+                        color: white;
                         font-weight: bold;
                         background-color: $principal;
                         padding: .4rem .6rem;
@@ -809,7 +780,7 @@ main{
                     }
                     .selected-skill{
                         background-color: $dark;
-                        color: $principal;
+                        color: white;
                         transition: all 200ms;
                         &:hover{
                             background-color: lighten($dark,5);
@@ -850,7 +821,7 @@ main{
                         background-color: darken($principal,5);
                         padding: .5rem;
                         height: 100%;
-                        color: $dark;
+                        color: white;
                         font-weight: bold;
                         border-top-right-radius: 10px;
                         border-bottom-right-radius: 10px;
@@ -862,7 +833,7 @@ main{
                         }
                     }
                     #blank{
-                        color: $dark;
+                        color: white;
                         font-weight: bold;
                         font-size: 1.1rem;
                         background-color: darken($principal,5);
@@ -889,7 +860,7 @@ main{
                     button{
                         display: inline-block;
                         opacity: 0;
-                        color: $dark;
+                        color: white;
                         font-weight: bold;
                         background-color: $principal;
                         padding: .4rem .6rem;
@@ -944,14 +915,15 @@ main{
                     }
                 }
                 img{
-                    height: 100%;
+                    height: 190px !important;
+                    width: 345px !important;
                     width: max-content;
                     border-radius: 7px;
                     filter: greyscale(100%);
                     transition: all 200ms;
                 }
                 & > span{
-                    color: $principal;
+                    color: white;
                     font-weight: bold;
                     background-color: $dark;
                     padding: .2rem;
@@ -963,7 +935,7 @@ main{
                     transform: translateY(-25px); 
                     transition: all 200ms;           
                     a{
-                        color: $principal;
+                        color: white;
                         font-weight: bold;
                         background-color: $dark;
                         text-decoration: none;
@@ -988,7 +960,7 @@ main{
                         font-size: .6rem;
                         font-weight: bold;
                         background-color: $dark;
-                        color: $principal;
+                        color: white;
                         padding: .2rem;
                         border-radius: 5px;
                         margin: 2px 2px 0 0;
@@ -1142,7 +1114,7 @@ main{
                 padding: .75rem .95rem;
                 background-color: $principal;
                 border-radius: 50px;
-                color: $dark;
+                color: white;
                 font-size: 1.2rem;
                 font-weight: bold;
                 border: 2px $principal solid;
@@ -1242,33 +1214,6 @@ main{
             justify-content: center;
             flex-wrap: wrap;
             li{
-                .tool{
-                    position: absolute;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    top: -4rem;
-                    left: -3rem;
-                    width: 200px !important;
-                    border-radius: 10px;
-                    text-align: center;
-                    background-color: $dark;
-                    color: $principal;
-                    font-weight: bold;
-                    padding: .5rem .75rem;
-                    transform: scale(0);
-                    transition: all 200ms;
-
-                    &::before{
-                        content: "";
-                        transition: all 200ms;
-                        transform: scale(0);
-                        position: absolute;
-                        top: 2.5rem;
-                        border: 20px solid transparent;
-                        border-top-color: $dark;
-                    }
-                }
                 a{
                     display: inline-block;
                     padding: 1rem;
@@ -1280,12 +1225,9 @@ main{
                     &:hover{
                         transform: translateY(-5px);
                     }
-                    &:hover .tool,.tool::before{
-                        transform: scale(1);
-                    }
                 }
             }
-            & li:last-of-type{
+            & li:nth-child(6){
                 a{
                     padding: 1.4rem;
                 }

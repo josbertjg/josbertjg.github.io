@@ -10,6 +10,11 @@ $(document).ready(()=>{
     let item2= document.getElementById("menu-item-2");
     let item3= document.getElementById("menu-item-3");
     let item4= document.getElementById("menu-item-4");
+
+    //DECLARING BOOTSTRAP TOOLTIPS
+    const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+    const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+
     /* INITIAL EFFECTS */
     setTimeout(()=>{
         let aux=0;
@@ -483,7 +488,7 @@ $(document).ready(()=>{
                             $(".text-header-container div > p b").fadeIn(400);
                             $(".text-header-container img").fadeIn(400);
                         }
-                        $(".header-social-media li:first-of-type").fadeIn(300,()=>$(".header-social-media li:nth-of-type(2)").fadeIn(300,()=>$(".header-social-media li:nth-of-type(3)").fadeIn(300,()=>$(".header-social-media li:nth-of-type(4)").fadeIn(300,()=>$(".header-social-media li:nth-of-type(5)").fadeIn(300,()=>$(".header-social-media li:nth-of-type(6)").fadeIn(300))))));
+                        $(".header-social-media li:first-of-type").fadeIn(300,()=>$(".header-social-media li:nth-of-type(2)").fadeIn(300,()=>$(".header-social-media li:nth-of-type(3)").fadeIn(300,()=>$(".header-social-media li:nth-of-type(4)").fadeIn(300,()=>$(".header-social-media li:nth-of-type(5)").fadeIn(300,()=>$(".header-social-media li:nth-of-type(6)").fadeIn(300,()=>$(".header-social-media li:nth-of-type(7)").fadeIn(300)))))));
                     }, 2000);
                 });
             });
@@ -709,7 +714,7 @@ $(document).ready(()=>{
         for(let i=0;i<arrSkills.length;i++){
             skillBar=arrSkills[i].childNodes[3].childNodes[1];
             level=$(skillBar).attr("level");
-            $(skillBar).css({"width":`${level}0%`})
+            $(skillBar).css({"width":`${level}%`})
         }
     }
     // $(document).scroll(()=>{
