@@ -1,10 +1,11 @@
 import { AnimatePresence, motion, useAnimate } from 'motion/react'
-import { useState } from 'react'
+// import { useState } from 'react'
 
 export const BackgroundEffect = () => {
   const [topGrad, animTopGrad] = useAnimate()
   const [bottomGrad, animBottomGrad] = useAnimate()
-  const [whiteOut, _] = useState(false)
+  // const [whiteOut, _] = useState(false)
+  const whiteOut = false
 
   return (
     <motion.div className='background absolute -z-10'
