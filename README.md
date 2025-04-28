@@ -1,54 +1,79 @@
-# React + TypeScript + Vite
+# 👨‍💻 Josbert Guedez | Front-End Developer
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+¡Hola! Soy **Josbert Guedez**, un apasionado desarrollador **Front-End** con más de **3 años de experiencia profesional** construyendo interfaces web y móviles modernas, escalables y centradas en la experiencia de usuario (UX).
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Sobre mí
 
-## Expanding the ESLint configuration
+- 🌟 Especialista en **React**, **TypeScript**, con conocimientos en **Vue** y **React Native**.
+- 🎨 Amante del **diseño UX/UI**, creando interfaces intuitivas y accesibles.
+- 📱 Experiencia en **desarrollo de aplicaciones móviles** informativas y con notificaciones Push.
+- 🛠️ Migraciones avanzadas de ecosistemas tecnológicos: **React 16 ➡️ React 18**, **MUI 4 ➡️ MUI 5**, **Webpack ➡️ Vite**, **npm ➡️ pnpm**.
+- 🌐 Integraciones sólidas de **Front-End con APIs REST** usando Axios y Fetch.
+- 💬 Español nativo | Inglés avanzado (fluido).
+- 🤝 Comprometido con el trabajo en equipo (SCRUM, Jira, Git).
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+## 🛠️ Tecnologías principales
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
+![SASS](https://img.shields.io/badge/Sass-CC6699?style=for-the-badge&logo=sass&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
+![React](https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=black)
+![Vue.js](https://img.shields.io/badge/Vue.js-4FC08D?style=for-the-badge&logo=vue.js&logoColor=white)
+![React Native](https://img.shields.io/badge/React_Native-61DAFB?style=for-the-badge&logo=react&logoColor=black)
+![TailwindCSS](https://img.shields.io/badge/TailwindCSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
+![Bootstrap](https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white)
+![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white)
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+---
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+## 📚 Educación y Certificaciones
+
+- 🎓 **Higher Technician in Computer Science** – I.U.J.O, Venezuela
+- 📜 **Front-End Master Developer** – CADIF1
+- 📜 **GIT Administrator** – CADIF1
+- 📜 **Algorithm Designer** – CADIF1
+- 📜 **Modern Languages (English)** – Carabobo University
+
+---
+
+## 💼 Experiencia profesional
+
+- **Software Academy CADIF1** | Developer (Internship) — _WordPress Theme Development & UX/UI Design_
+- **Neopixels Digital Marketing Agency** | Developer — _Custom WordPress Development, UX/UI Optimization_
+- **Cenco Consultoría (Uruguay)** | Front-End Developer — _Full-stack Front-End development using React, Vue, TypeScript, React Native, TailwindCSS, and more._
+
+---
+
+## 📈 ¿Qué me diferencia?
+
+✅ Fuerte adaptabilidad a proyectos y tecnologías nuevas.  
+✅ Mentalidad de crecimiento: aprendo de los éxitos y los errores.  
+✅ Comunicación efectiva, responsabilidad y enfoque en resultados.  
+✅ Pasión real por el código limpio, mantenible y centrado en el usuario.
+
+---
+
+## 🌐 Links
+
+- 🌎 **Portafolio Web:** [https://josbertjg.github.io/](https://josbertjg.github.io/)
+- 💼 **LinkedIn:** [https://www.linkedin.com/in/josbert-guedez-053042168/](https://www.linkedin.com/in/josbert-guedez-053042168/)
+- 🛠️ **GitHub:** *josbertjg*
+
+---
+
+## 📩 Contacto
+
+¿Te gustaría trabajar juntos o saber más sobre mis proyectos?  
+¡Estoy abierto a nuevas oportunidades y colaboraciones! 🚀  
+**Email:** *josbertjg@gmail.com*
+
+---
+
+# 🚀 ¡Gracias por visitar mi portafolio!
+
