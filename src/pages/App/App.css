@@ -1,0 +1,23 @@
+main {
+  height: 100vh;
+  width: 100vw;
+}
+.element {
+  width: 100px;
+  height: 100px;
+}
+.background {
+  height: 30vh;
+  width: 0vw;
+  background-color: black;
+}
+.top-gradient{
+  opacity: 0;
+  mask-image: linear-gradient(to right,black, transparent);
+  background-image: linear-gradient(blue, transparent);
+}
+.bottom-gradient{
+  opacity: 0;
+  mask-image: linear-gradient(to left,black, transparent);
+  background-image: linear-gradient(to top, blue, transparent);
+}
