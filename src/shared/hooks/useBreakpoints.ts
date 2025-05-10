@@ -16,6 +16,7 @@ interface BreakpointInfo {
   isMobile: boolean;
   isLaptop: boolean;
   isPC: boolean;
+  customBreakpoint: ({width, type}: {width: number, type: "up" | "down"}) => boolean
 }
 
 interface windowSize {
@@ -25,6 +26,7 @@ interface windowSize {
 
 export const useBreakpoints = (): BreakpointInfo => {
   const [windowSize, setWindowSize] = useState<windowSize>({width: window.innerWidth, height: window.innerHeight})
+  // const [custom, setCustom] = useState<{width: number, type: "up" | "down"}>({width: 0, type: "up"})
 
   useEffect(() => {
     window.addEventListener('resize', handleWindowResize);
@@ -48,6 +50,14 @@ export const useBreakpoints = (): BreakpointInfo => {
     const isLaptop = width > 1024 && width <= 1366;
     const isPC = width > 1366;
 
+    const customBreakpoint = ({width, type}: {width: number, type: "up" | "down"}): boolean => {
+      if(type === "up") {
+        return width <= windowSize.width
+      } else {
+        return width >= windowSize.width
+      }
+    }
+
     return {
       width,
       height,
@@ -64,10 +74,11 @@ export const useBreakpoints = (): BreakpointInfo => {
       isMobile,
       isLaptop,
       isPC,
+      customBreakpoint,
     };
   }, [windowSize]);
 
-  const handleWindowResize= () => {
+  const handleWindowResize = () => {
     setWindowSize({width: innerWidth, height: innerHeight})
   }
 
