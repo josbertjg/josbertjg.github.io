@@ -1,82 +1,61 @@
-import SkillIcon from "./components/SkillIcon"
-import { useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import gsap from "gsap"
-import { useGSAP } from "@gsap/react"
+import { SplitText } from 'gsap/all'
 import { MotionPathPlugin } from "gsap/MotionPathPlugin"
-import { useBreakpoints } from "../../shared/hooks/useBreakpoints"
+import { BackgroundAnimation } from "./components/BackgroundAnimation"
+import IconsAnimation from "./components/IconsAnimation"
 
 gsap.registerPlugin(MotionPathPlugin)
 
 export default function LandingPage() {
   const container = useRef<HTMLDivElement>(null)
+  const textContainer = useRef<HTMLDivElement>(null)
+  const [isBlackOutComplete, setIsBlackOutComplete] = useState<boolean>(false)
 
-  const { customBreakpoint } = useBreakpoints()
-  const up1300 = customBreakpoint({ width: 1300, type: "up" })
-  const up1100 = customBreakpoint({ width: 1100, type: "up" })
+  useEffect(() => {
+    let ctx = null
+    ctx = gsap.context(() => {
+      const tl = gsap.timeline({ delay: 1 })
+      if (isBlackOutComplete && textContainer.current) {
+        textContainer.current.style.display = "flex"
+        const splitName = SplitText.create(textContainer.current.getElementsByClassName("name")[0], { type: "chars, words" })
+        // const splitDescription = SplitText.create(textContainer.current.getElementsByClassName("description")[0], { type: "chars, words" })
 
-  const handleViewBox = (): string => {
-    if(up1300) return "600 950"
-    if(up1100) return "900 800"
-    return "1000 800"
-  }
-
-  useGSAP(() => {
-    const icons = gsap.utils.toArray<HTMLElement>(".skillIcon")
-
-    gsap.set(icons, {
-      position: "absolute",
-      top: "50%",
-      left: "50%",
-      xPercent: -50,
-      yPercent: -50,
-      transformOrigin: "50% 50%"
+        tl.from(textContainer.current.getElementsByClassName("greet")[0], { y: 20, autoAlpha: 0, duration: 1, ease: "power1.inOut", delay: 0.5 })
+          .from(splitName.chars, { y: 20, autoAlpha: 0, stagger: 0.05 }, 1)
+          .from(textContainer.current.getElementsByClassName("seniority")[0], { y: 20, autoAlpha: 0, ease: "power1.inOut" }, 2)
+          .from(textContainer.current.getElementsByClassName("description")[0], { y: 20, autoAlpha: 0, ease: "power1.inOut" }, 2.3)
+          // .from(splitDescription.chars, { y: 100, autoAlpha: 0, stagger: { amount: 1, from: "random" } }, 2.5)
+          .to(textContainer.current.getElementsByClassName("btn")[0], { scale: 1, ease: "power1.inOut" }, 3.2)
+      }
     })
 
-    icons.forEach((icon, index) => {
-      const progress = 1 - (index * 0.05)
-      gsap.to(icon, {
-        opacity: 1,
-        scale: 1,
-        motionPath: {
-          path: "#circlePath",
-          align: "#circlePath",
-          alignOrigin: [0.5, 0.5],
-          start: 0,
-          end: progress
-        },
-        duration: 4,
-        ease: "power1.inOut",
-        delay: index * 0.15
-      })
-    })
-  }, { scope: container })
+    return () => ctx.revert()
+  }, [isBlackOutComplete])
 
   return (
-    <div ref={container} className='flex items-center justify-center h-full w-full relative'>
-      <svg
-        className="absolute w-full h-full pointer-events-none"
-        viewBox={`-500 -500 ${handleViewBox()}`}
-        preserveAspectRatio="xMidYMid meet"
-      >
-        <path
-          id="circlePath"
-          d="
-            M-1083,478 C-1083,350 -790.27,514.196 -608,413 -455.3384,328.2426 -396.27,365.474 -281.992,350.915 -101.164,327.877 110.271,311.525 62.257,170.502 -10.449,-43.039 84.9307,-173.0251 230.656,-162.985 422.352,-149.777 446.261,133.197 389,178
-          "
-          fill="none"
-          stroke="transparent"
-        />
+    <div ref={container} className='h-full w-full relative'>
+      <BackgroundAnimation onBlackOutFinished={() => { setIsBlackOutComplete(true) }} />
 
-        <foreignObject x={80} y={-100} width="100%" height="100%">
-          <div className="w-70 h-70 rounded-full bg-gray-300">
-            {/* <img src="foto.jpg" className="w-full h-full object-cover rounded-full" /> */}
-          </div>
-        </foreignObject>
-      </svg>
+      <div className="absolute top-0 left-0z-50 h-full w-full grid grid-cols-2">
+        <div ref={textContainer} className="flex-col justify-center lg:col-span-1 col-span-2 xl:ps-20 xl:pb-32 lg:ps-10 md:ps-5 md:pb-72 sm:pb-22 pb-32 px-5 hidden">
+          <h2 className="md:text-2xl sm:text-xl text:lg font-bold text-primary greet">¡Hey There! I'm</h2>
+          <h1 className="text-white xl:text-7xl lg:text-6xl sm:text-5xl text-4xl font-bold tracking-wide name">Josbert Guedez</h1>
+          <h3 className="text-tertiary font-semibold mt-2 text-base seniority">Software Developer & UX/UI +3 years of professional experience</h3>
+          <p className="mt-2 text-tertiary font-semibold text-sm sm:block hidden description">Especializado en el desarrollo de interfaces modernas, accesibles y eficientes. Alta adaptabilidad a proyectos, metodologías ágiles, y entornos colaborativos. ¿te interesa conocer un poco más sobre mi trabajo?</p>
+          <button
+            className="text-white hover:text-secondary bg-primary hover:bg-tertiary rounded-full sm:px-4 px-2 py-4 mt-7 cursor-pointer z-10 sm:w-60 w-45 font-semibold sm:text-base text-sm transition-all duration-300 scale-0 btn"
+            onClick={() => {
+              gsap.to(container.current!.getElementsByTagName("button")[0], {
+                scale: 30,
+                duration: 3,
+                ease: "power1.out",
+              })
+            }}>Descubre mi trabajo</button>
+        </div>
+      </div>
 
-      {[...Array(9)].map((_, i) => (
-        <SkillIcon key={i} />
-      ))}
+      <IconsAnimation isBlackOutComplete={isBlackOutComplete} />
 
     </div>
   )

@@ -1,0 +1,24 @@
+{
+  "longName": "Josbert Alfonso Guedez Mora",
+  "shortName": "Josbert Guedez",
+  "contact": {
+    "email": {
+      "tag": "josbertjg@gmail",
+      "link": "mailto:josbertjg@gmail"
+    },
+    "github": {
+      "tag": "@josbertjg",
+      "link": "https://github.com/josbertjg"
+    },
+    "whatsapp": {
+      "tag": "+58 414-5598216",
+      "link": "https://wa.me/584145598216"
+    }
+  },
+  "startProfessionalDate": "2023-03-01",
+  "startProgramingDate": "2021-06-01",
+  "languages": [
+    { "name": "Spanish", "level": "Native" },
+    { "name": "English", "level": "Advanced" }
+  ]
+}
