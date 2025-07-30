@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
 
 interface LazyImgProps {
   src: string,
@@ -10,8 +10,19 @@ interface LazyImgProps {
 }
 
 function LazyImg({src, smallImg, style, className, ...rest}: LazyImgProps) {
+  const img = useRef<HTMLImageElement>(null)
+
+  useEffect(()=>{
+    if(img.current) {
+      img.current.addEventListener("load", () => {
+        img.current?.style.removeProperty("background-image")
+      })
+    }
+  },[img])
+
   return (
     <img
+      ref={img}
       {...rest}
       src={src}
       style={{backgroundImage: `url(${smallImg})`, ...style}}

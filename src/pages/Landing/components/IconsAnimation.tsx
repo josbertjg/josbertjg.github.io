@@ -16,7 +16,7 @@ function IconsAnimation({ isBlackOutComplete }: { isBlackOutComplete: boolean })
 
   useGSAP(() => {
     if (isBlackOutComplete) {
-      gsap.set(imgContainer.current, { autoAlpha: 1 })
+      gsap.set(imgContainer.current, { autoAlpha: 1, x: 5 })
       gsap.from(imgContainer.current, {
         autoAlpha: 0,
         y: 100,

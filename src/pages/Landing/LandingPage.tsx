@@ -10,7 +10,9 @@ gsap.registerPlugin(MotionPathPlugin)
 export default function LandingPage() {
   const container = useRef<HTMLDivElement>(null)
   const textContainer = useRef<HTMLDivElement>(null)
+  const discoverWorkBtn = useRef<HTMLButtonElement>(null)
   const [isBlackOutComplete, setIsBlackOutComplete] = useState<boolean>(false)
+  const [discoverWork, setDiscoverWork] = useState<boolean>(false)
 
   useEffect(() => {
     let ctx = null
@@ -24,14 +26,24 @@ export default function LandingPage() {
         tl.from(textContainer.current.getElementsByClassName("greet")[0], { y: 20, autoAlpha: 0, duration: 1, ease: "power1.inOut", delay: 0.5 })
           .from(splitName.chars, { y: 20, autoAlpha: 0, stagger: 0.05 }, 1)
           .from(textContainer.current.getElementsByClassName("seniority")[0], { y: 20, autoAlpha: 0, ease: "power1.inOut" }, 2)
-          .from(textContainer.current.getElementsByClassName("description")[0], { y: 20, autoAlpha: 0, ease: "power1.inOut" }, 2.3)
+          .from(textContainer.current.getElementsByClassName("description")[0], { y: 20, autoAlpha: 0, ease: "power1.inOut" }, 2.2)
           // .from(splitDescription.chars, { y: 100, autoAlpha: 0, stagger: { amount: 1, from: "random" } }, 2.5)
-          .to(textContainer.current.getElementsByClassName("btn")[0], { scale: 1, ease: "power1.inOut" }, 3.2)
+          .to(discoverWorkBtn.current, { scale: 1, ease: "power1.inOut", duration: 0.3 }, 3)
       }
     })
 
     return () => ctx.revert()
   }, [isBlackOutComplete])
+
+  const handleDiscoverWork = () => {
+    setDiscoverWork(true)
+    
+    gsap.to(discoverWorkBtn.current, {
+      scale: 30,
+      duration: 2,
+      ease: "power1.inOut",
+    })
+  }
 
   return (
     <div ref={container} className='h-full w-full relative'>
@@ -44,14 +56,13 @@ export default function LandingPage() {
           <h3 className="text-tertiary font-semibold mt-2 text-base seniority">Software Developer & UX/UI +3 years of professional experience</h3>
           <p className="mt-2 text-tertiary font-semibold text-sm sm:block hidden description">Especializado en el desarrollo de interfaces modernas, accesibles y eficientes. Alta adaptabilidad a proyectos, metodologías ágiles, y entornos colaborativos. ¿te interesa conocer un poco más sobre mi trabajo?</p>
           <button
-            className="text-white hover:text-secondary bg-primary hover:bg-tertiary rounded-full sm:px-4 px-2 py-4 mt-7 cursor-pointer z-10 sm:w-60 w-45 font-semibold sm:text-base text-sm transition-all duration-300 scale-0 btn"
-            onClick={() => {
-              gsap.to(container.current!.getElementsByTagName("button")[0], {
-                scale: 30,
-                duration: 3,
-                ease: "power1.out",
-              })
-            }}>Descubre mi trabajo</button>
+            ref={discoverWorkBtn}
+            className={
+              ` hover:text-secondary hover:bg-tertiary rounded-full sm:px-4 px-2 py-4 mt-7 cursor-pointer z-10 sm:w-60 w-45 font-semibold sm:text-base text-sm scale-0 btn
+              ${discoverWork ? "bg-tertiary !text-tertiary !cursor-default" : "text-white bg-primary"}
+              `
+            }
+            onClick={handleDiscoverWork}>Descubre mi trabajo</button>
         </div>
       </div>
 
